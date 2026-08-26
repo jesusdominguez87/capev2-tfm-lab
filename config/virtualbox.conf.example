@@ -1,0 +1,55 @@
+# virtualbox.conf — Configuración del hipervisor VirtualBox para CAPEv2
+# Copia este fichero a /opt/CAPEv2/conf/virtualbox.conf y ajusta los valores.
+#
+# Parámetros que DEBES cambiar:
+#   - machines: nombre exacto de tu VM tal como aparece en VirtualBox
+#   - [Win10-Lab]: renombra esta sección con el mismo nombre que "machines"
+#   - label: mismo nombre de la VM
+#   - ip: IP estática del Guest
+#   - snapshot: nombre exacto del snapshot (respeta mayúsculas y tildes)
+
+[virtualbox]
+# Modo de renderizado de la VM durante el análisis
+# "gui" muestra la ventana de la VM (útil para depurar)
+# "headless" corre la VM sin ventana (producción)
+mode = gui
+
+# Ruta al ejecutable VBoxManage
+path = /usr/bin/VBoxManage
+
+# Nombre(s) de la(s) máquina(s) virtual(es) a usar (separadas por coma si hay varias)
+machines = Win10-Lab
+
+# Nombre del usuario de VirtualBox (déjalo en blanco para usar el usuario actual)
+# Importante: el usuario que ejecuta CAPE debe ser el mismo que tiene la VM registrada
+user =
+
+[Win10-Lab]
+# Nombre exacto de la VM en VirtualBox (debe coincidir con "machines" arriba)
+label = Win10-Lab
+
+# Sistema operativo del Guest
+platform = windows
+
+# IP estática configurada en el Guest
+ip = 192.168.56.101
+
+# Nombre exacto del snapshot base
+# ¡Respeta mayúsculas, minúsculas, tildes y espacios!
+snapshot = CAPE_Limpio
+
+# Interfaz de red Host-Only (vboxnet0 por defecto)
+interface = vboxnet0
+
+# IP del Host por la que el Guest enviará resultados al ResultServer
+resultserver_ip = 192.168.56.1
+
+# Puerto del ResultServer
+resultserver_port = 2042
+
+# Arquitectura del Guest (x64 para Windows 10 de 64 bits)
+arch = x64
+
+# Número de CPUs asignadas a la VM
+# (más CPUs pueden reducir la detección por pruebas de rendimiento del malware)
+cpu_count = 2

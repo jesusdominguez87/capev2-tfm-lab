@@ -1,0 +1,58 @@
+# cuckoo.conf — Configuración principal de CAPEv2
+# Copia este fichero a /opt/CAPEv2/conf/cuckoo.conf y ajusta los valores.
+#
+# Parámetros críticos marcados con [CAMBIAR]
+
+[cuckoo]
+# [CAMBIAR si usas otro hipervisor] — "virtualbox", "kvm", "vmware"
+machinery = virtualbox
+
+# Directorio temporal para las muestras subidas vía Web UI
+# [CAMBIAR] — /tmp suele estar en RAM (tmpfs) y se queda sin espacio
+# Usa una ruta dentro de /opt donde tienes espacio de disco real
+tmppath = /opt/CAPEv2/storage/tmp
+
+# IP y puerto del ResultServer (debe ser la IP de la interfaz vboxnet0 del Host)
+# [CAMBIAR si usas un rango de red diferente]
+resultserver_ip = 192.168.56.1
+resultserver_port = 2042
+
+# Tiempo máximo de análisis en segundos
+# PAFish y malware real evasivo puede necesitar más tiempo si tiene sleeps largos
+analysis_timeout = 120
+
+# Tiempo máximo para que el Guest arranque y el agente responda
+critical_timeout = 60
+
+# Si es True, CAPE eliminará los archivos de análisis tras generar el reporte
+# Pon False durante el desarrollo para poder inspeccionar los artefactos
+delete_original = false
+delete_bin_copy = false
+
+[database]
+# Cadena de conexión a PostgreSQL
+# El script cape2.sh crea el usuario y la base de datos "cape" por defecto
+connection = postgresql://cape:cape@localhost/cape
+
+# Timeout de conexión a la BD en segundos
+timeout = 60
+
+[processing]
+# Número de workers del procesador de análisis
+# Aumentar si tienes varias VMs y quieres procesar análisis en paralelo
+worker_count = 1
+
+[reporting]
+# Formatos de reporte a generar
+# "json" es el formato principal (el que se usa en este TFM)
+[report_json]
+enabled = yes
+
+[report_html]
+enabled = yes
+
+[misp]
+# Integración con MISP para compartir IoCs (desactivado por defecto)
+enabled = no
+url =
+apikey =

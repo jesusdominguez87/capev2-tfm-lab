@@ -1,0 +1,4621 @@
+{
+  "statistics": {
+    "processing": [
+      {
+        "name": "CAPE",
+        "time": 0.931
+      },
+      {
+        "name": "AnalysisInfo",
+        "time": 0.029
+      },
+      {
+        "name": "BehaviorAnalysis",
+        "time": 0.0
+      },
+      {
+        "name": "Debug",
+        "time": 0.001
+      },
+      {
+        "name": "NetworkAnalysis",
+        "time": 0.0
+      },
+      {
+        "name": "UrlAnalysis",
+        "time": 0.0
+      },
+      {
+        "name": "script_log_processing",
+        "time": 0.0
+      },
+      {
+        "name": "ProcessMemory",
+        "time": 0.0
+      }
+    ],
+    "signatures": [
+      {
+        "name": "packer_themida",
+        "time": 0.0
+      },
+      {
+        "name": "stealth_network",
+        "time": 0.0
+      },
+      {
+        "name": "disable_driver_via_blocklist",
+        "time": 0.0
+      },
+      {
+        "name": "disable_driver_via_hvcidisallowedimages",
+        "time": 0.0
+      },
+      {
+        "name": "disable_hypervisor_protected_code_integrity",
+        "time": 0.0
+      },
+      {
+        "name": "pendingfilerenameoperations_Operations",
+        "time": 0.0
+      },
+      {
+        "name": "anomalous_deletefile",
+        "time": 0.0
+      },
+      {
+        "name": "antiav_servicestop",
+        "time": 0.0
+      },
+      {
+        "name": "antidebug_guardpages",
+        "time": 0.0
+      },
+      {
+        "name": "antidebug_outputdebugstring",
+        "time": 0.0
+      },
+      {
+        "name": "antidebug_windows",
+        "time": 0.0
+      },
+      {
+        "name": "antisandbox_cuckoocrash",
+        "time": 0.0
+      },
+      {
+        "name": "antisandbox_foregroundwindows",
+        "time": 0.0
+      },
+      {
+        "name": "mouse_movement_detect",
+        "time": 0.0
+      },
+      {
+        "name": "antisandbox_script_timer",
+        "time": 0.0
+      },
+      {
+        "name": "antisandbox_sleep",
+        "time": 0.0
+      },
+      {
+        "name": "antisandbox_system_parameters_info",
+        "time": 0.0
+      },
+      {
+        "name": "antisandbox_unhook",
+        "time": 0.0
+      },
+      {
+        "name": "hardware_id_profiling",
+        "time": 0.0
+      },
+      {
+        "name": "antisandbox_windows_activation",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_directory_objects",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_display",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_generic_system",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_checks_available_memory",
+        "time": 0.0
+      },
+      {
+        "name": "detect_virtualization_via_recent_files",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_vmware_events",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_wmi",
+        "time": 0.0
+      },
+      {
+        "name": "api_spamming",
+        "time": 0.0
+      },
+      {
+        "name": "api_uuidfromstringa",
+        "time": 0.0
+      },
+      {
+        "name": "bcdedit_command",
+        "time": 0.0
+      },
+      {
+        "name": "direct_hdd_access",
+        "time": 0.0
+      },
+      {
+        "name": "physical_drive_access",
+        "time": 0.0
+      },
+      {
+        "name": "potential_overwrite_mbr",
+        "time": 0.0
+      },
+      {
+        "name": "read_file_raw_disk_access",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_iocontrol_codes",
+        "time": 0.0
+      },
+      {
+        "name": "browser_needed",
+        "time": 0.0
+      },
+      {
+        "name": "amsi_enumeration",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_ntdll_disk_load",
+        "time": 0.0
+      },
+      {
+        "name": "direct_syscall_evasion",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_syscall_execution",
+        "time": 0.0
+      },
+      {
+        "name": "uac_bypass_cmstp",
+        "time": 0.0
+      },
+      {
+        "name": "uac_bypass_eventvwr",
+        "time": 0.0
+      },
+      {
+        "name": "privilege_elevation_check",
+        "time": 0.0
+      },
+      {
+        "name": "dotnet_code_compile",
+        "time": 0.0
+      },
+      {
+        "name": "queries_computer_name",
+        "time": 0.0
+      },
+      {
+        "name": "queries_user_name",
+        "time": 0.0
+      },
+      {
+        "name": "creates_largekey",
+        "time": 0.0
+      },
+      {
+        "name": "creates_nullvalue",
+        "time": 0.0
+      },
+      {
+        "name": "access_windows_passwords_vault",
+        "time": 0.0
+      },
+      {
+        "name": "lsass_credential_dumping",
+        "time": 0.0
+      },
+      {
+        "name": "critical_process",
+        "time": 0.0
+      },
+      {
+        "name": "cng_large_decryption",
+        "time": 0.0
+      },
+      {
+        "name": "query_fips_reconnaissance",
+        "time": 0.0
+      },
+      {
+        "name": "cryptopool_domains",
+        "time": 0.0
+      },
+      {
+        "name": "dead_connect",
+        "time": 0.0
+      },
+      {
+        "name": "dead_link",
+        "time": 0.0
+      },
+      {
+        "name": "decoy_document",
+        "time": 0.0
+      },
+      {
+        "name": "decoy_image",
+        "time": 0.0
+      },
+      {
+        "name": "deletes_consolehost_history",
+        "time": 0.0
+      },
+      {
+        "name": "dep_bypass",
+        "time": 0.0
+      },
+      {
+        "name": "dep_disable",
+        "time": 0.0
+      },
+      {
+        "name": "disables_wfp",
+        "time": 0.0
+      },
+      {
+        "name": "add_windows_defender_exclusions",
+        "time": 0.0
+      },
+      {
+        "name": "mountpoint_manager_access",
+        "time": 0.0
+      },
+      {
+        "name": "mountpoints_volume_discovery",
+        "time": 0.0
+      },
+      {
+        "name": "dllload_suspicious_directory",
+        "time": 0.0
+      },
+      {
+        "name": "document_script_exe_drop",
+        "time": 0.0
+      },
+      {
+        "name": "driver_load",
+        "time": 0.0
+      },
+      {
+        "name": "install_kernel_driver_service",
+        "time": 0.0
+      },
+      {
+        "name": "malformed_dll_loading",
+        "time": 0.0
+      },
+      {
+        "name": "dynamic_function_loading",
+        "time": 0.0
+      },
+      {
+        "name": "encrypted_ioc",
+        "time": 0.0
+      },
+      {
+        "name": "registers_vectored_exception_handler",
+        "time": 0.0
+      },
+      {
+        "name": "allocated_memory_protection_noaccess",
+        "time": 0.0
+      },
+      {
+        "name": "exception_driven_execution",
+        "time": 0.0
+      },
+      {
+        "name": "process_creation_suspicious_location",
+        "time": 0.0
+      },
+      {
+        "name": "exploit_getbasekerneladdress",
+        "time": 0.0
+      },
+      {
+        "name": "exploit_gethaldispatchtable",
+        "time": 0.0
+      },
+      {
+        "name": "exploit_heapspray",
+        "time": 0.0
+      },
+      {
+        "name": "per_file_acl_token_check",
+        "time": 0.0
+      },
+      {
+        "name": "takeownership_check",
+        "time": 0.0
+      },
+      {
+        "name": "downloads_from_filehosting",
+        "time": 0.0
+      },
+      {
+        "name": "generic_phish",
+        "time": 0.0
+      },
+      {
+        "name": "http_request",
+        "time": 0.0
+      },
+      {
+        "name": "infostealer_browser",
+        "time": 0.0
+      },
+      {
+        "name": "infostealer_browser_password",
+        "time": 0.0
+      },
+      {
+        "name": "infostealer_cookies",
+        "time": 0.0
+      },
+      {
+        "name": "captures_screenshot",
+        "time": 0.0
+      },
+      {
+        "name": "creates_suspended_process",
+        "time": 0.0
+      },
+      {
+        "name": "injection_module_stomping_probing",
+        "time": 0.0
+      },
+      {
+        "name": "injection_network_traffic",
+        "time": 0.0
+      },
+      {
+        "name": "section_mapping_injection",
+        "time": 0.0
+      },
+      {
+        "name": "injection_themeinitapihook",
+        "time": 0.0
+      },
+      {
+        "name": "apc_injection",
+        "time": 0.0
+      },
+      {
+        "name": "resumethread_remote_process",
+        "time": 0.0
+      },
+      {
+        "name": "injection_write_exe_process",
+        "time": 0.0
+      },
+      {
+        "name": "injection_write_process",
+        "time": 0.0
+      },
+      {
+        "name": "internet_dropper",
+        "time": 0.0
+      },
+      {
+        "name": "interprocess_comms_mutex",
+        "time": 0.0
+      },
+      {
+        "name": "interprocess_comms_named_pipe",
+        "time": 0.0
+      },
+      {
+        "name": "interprocess_comms_shared_memory",
+        "time": 0.0
+      },
+      {
+        "name": "wm_copydata_ipc",
+        "time": 0.0
+      },
+      {
+        "name": "escalate_privilege_via_named_pipe",
+        "time": 0.0
+      },
+      {
+        "name": "ipc_namedpipe",
+        "time": 0.0
+      },
+      {
+        "name": "js_phish",
+        "time": 0.0
+      },
+      {
+        "name": "js_suspicious_redirect",
+        "time": 0.0
+      },
+      {
+        "name": "execute_binary_via_internet_explorer_exporter",
+        "time": 0.0
+      },
+      {
+        "name": "execute_binary_via_run_exe_helper_utility",
+        "time": 0.0
+      },
+      {
+        "name": "execute_ps_via_syncappvpublishingserver",
+        "time": 0.0
+      },
+      {
+        "name": "malicious_dynamic_function_loading",
+        "time": 0.0
+      },
+      {
+        "name": "reads_memory_remote_process",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_amsi_patching",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_debug_object_query",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_etw_patching",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_exception_filter",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_hardware_breakpoint_set",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_ntdll_unhooking",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_privilege_escalation",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_process_mitigation_alteration",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_scheduled_task_creation",
+        "time": 0.0
+      },
+      {
+        "name": "thread_unbacked_memory",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_api_resolution",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_dotnet_execution",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_library_load",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_memory_apc_execution",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_memory_protection_alteration",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_mutex_creation",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_process_creation",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_veh_registration",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_com_instantiation",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_crypto_operations",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_delay_execution",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_file_dropping",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_process_enumeration",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_registry_modification",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_service_manipulation",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_token_manipulation",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_wmi_execution",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_bind_shell",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_dns_resolution",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_memory_network_connection",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_named_pipe_creation",
+        "time": 0.0
+      },
+      {
+        "name": "unbacked_useragent_retrieval",
+        "time": 0.0
+      },
+      {
+        "name": "mimics_filetime",
+        "time": 0.0
+      },
+      {
+        "name": "amsi_bypass_via_com_registry",
+        "time": 0.0
+      },
+      {
+        "name": "access_auto_logons_via_registry",
+        "time": 0.0
+      },
+      {
+        "name": "access_boot_key_via_registry",
+        "time": 0.0
+      },
+      {
+        "name": "create_suspicious_lnk_files",
+        "time": 0.0
+      },
+      {
+        "name": "credential_access_via_windows_credential_history",
+        "time": 0.0
+      },
+      {
+        "name": "dll_hijacking_via_microsoft_exchange",
+        "time": 0.0
+      },
+      {
+        "name": "dll_hijacking_via_waas_medic_svc_com_typelib",
+        "time": 0.0
+      },
+      {
+        "name": "execute_file_downloaded_via_openssh",
+        "time": 0.0
+      },
+      {
+        "name": "execute_safe_mode_from_suspicious_process",
+        "time": 0.0
+      },
+      {
+        "name": "execute_scripts_via_microsoft_management_console",
+        "time": 0.0
+      },
+      {
+        "name": "execute_suspicious_processes_via_windows_mssql_service",
+        "time": 0.0
+      },
+      {
+        "name": "execution_from_self_extracting_archive",
+        "time": 0.0
+      },
+      {
+        "name": "ip_address_discovery_via_trusted_program",
+        "time": 0.0
+      },
+      {
+        "name": "load_dll_via_control_panel",
+        "time": 0.0
+      },
+      {
+        "name": "network_connection_via_suspicious_process",
+        "time": 0.0
+      },
+      {
+        "name": "potential_location_discovery_via_unusual_process",
+        "time": 0.0
+      },
+      {
+        "name": "store_executable_registry",
+        "time": 0.0
+      },
+      {
+        "name": "Suspicious_Execution_Via_MicrosoftExchangeTransportAgent",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_java_execution_via_win_scripts",
+        "time": 0.0
+      },
+      {
+        "name": "Suspicious_Scheduled_Task_Creation_Via_Masqueraded_XML_File",
+        "time": 0.0
+      },
+      {
+        "name": "uses_restart_manager_for_suspicious_activities",
+        "time": 0.0
+      },
+      {
+        "name": "modify_desktop_wallpaper",
+        "time": 0.0
+      },
+      {
+        "name": "move_file_on_reboot",
+        "time": 0.0
+      },
+      {
+        "name": "multiple_useragents",
+        "time": 0.0
+      },
+      {
+        "name": "network_anomaly",
+        "time": 0.0
+      },
+      {
+        "name": "network_bind",
+        "time": 0.0
+      },
+      {
+        "name": "etherhiding_smart_contract_call",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_http_timeouts",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_https_archive",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_https_free_webhosting",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_https_generic",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_https_interactsh",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_https_opensource",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_https_pastesite",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_https_payload",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_https_serviceinterface",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_https_socialmedia",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_https_telegram",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_https_tempstorage",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_https_temp_urldns",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_https_urlshortener",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_https_useragent",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_smtps_exfil",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_smtps_generic",
+        "time": 0.0
+      },
+      {
+        "name": "network_dns_idn",
+        "time": 0.0
+      },
+      {
+        "name": "network_dns_suspicious_querytype",
+        "time": 0.0
+      },
+      {
+        "name": "network_dns_tunneling_request",
+        "time": 0.0
+      },
+      {
+        "name": "network_document_http",
+        "time": 0.0
+      },
+      {
+        "name": "explorer_http",
+        "time": 0.0
+      },
+      {
+        "name": "network_fake_useragent",
+        "time": 0.0
+      },
+      {
+        "name": "legitimate_domain_abuse",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_communication_trusted_site",
+        "time": 0.0
+      },
+      {
+        "name": "network_tor",
+        "time": 0.0
+      },
+      {
+        "name": "office_cve2017_11882",
+        "time": 0.0
+      },
+      {
+        "name": "office_cve2017_11882_network",
+        "time": 0.0
+      },
+      {
+        "name": "office_cve_2021_40444",
+        "time": 0.0
+      },
+      {
+        "name": "office_cve_2021_40444_m2",
+        "time": 0.0
+      },
+      {
+        "name": "office_flash_load",
+        "time": 0.0
+      },
+      {
+        "name": "office_postscript",
+        "time": 0.0
+      },
+      {
+        "name": "office_suspicious_processes",
+        "time": 0.0
+      },
+      {
+        "name": "office_write_exe",
+        "time": 0.0
+      },
+      {
+        "name": "decompress_exe",
+        "time": 0.0
+      },
+      {
+        "name": "persistence_via_autodial_dll_registry",
+        "time": 0.0
+      },
+      {
+        "name": "persistence_autorun",
+        "time": 0.0
+      },
+      {
+        "name": "persistence_autorun_tasks",
+        "time": 0.0
+      },
+      {
+        "name": "persistence_bootexecute",
+        "time": 0.0
+      },
+      {
+        "name": "persistence_registry_script",
+        "time": 0.0
+      },
+      {
+        "name": "powershell_network_connection",
+        "time": 0.0
+      },
+      {
+        "name": "powershell_download",
+        "time": 0.0
+      },
+      {
+        "name": "powershell_request",
+        "time": 0.0
+      },
+      {
+        "name": "createtoolhelp32snapshot_module_enumeration",
+        "time": 0.0
+      },
+      {
+        "name": "enumerates_running_processes",
+        "time": 0.0
+      },
+      {
+        "name": "process_interest",
+        "time": 0.0
+      },
+      {
+        "name": "process_needed",
+        "time": 0.0
+      },
+      {
+        "name": "ransomware_iocp_asynchronous_encryption",
+        "time": 0.0
+      },
+      {
+        "name": "kernel_crypto_driver_abuse",
+        "time": 0.0
+      },
+      {
+        "name": "mass_data_encryption",
+        "time": 0.0
+      },
+      {
+        "name": "ransomware_extension_hijack",
+        "time": 0.0
+      },
+      {
+        "name": "mass_file_modification_access",
+        "time": 0.0
+      },
+      {
+        "name": "ransomware_attribute_stripping",
+        "time": 0.0
+      },
+      {
+        "name": "ransomware_file_modifications",
+        "time": 0.0
+      },
+      {
+        "name": "mass_ransom_note_drop",
+        "time": 0.0
+      },
+      {
+        "name": "ransomware_message",
+        "time": 0.0
+      },
+      {
+        "name": "reads_self",
+        "time": 0.0
+      },
+      {
+        "name": "recon_beacon",
+        "time": 0.0
+      },
+      {
+        "name": "recon_programs",
+        "time": 0.0
+      },
+      {
+        "name": "accesses_recyclebin",
+        "time": 0.0
+      },
+      {
+        "name": "script_created_process",
+        "time": 0.0
+      },
+      {
+        "name": "script_network_activity",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_js_script",
+        "time": 0.0
+      },
+      {
+        "name": "javascript_timer",
+        "time": 0.0
+      },
+      {
+        "name": "secure_login_phishing",
+        "time": 0.0
+      },
+      {
+        "name": "securityxploded_modules",
+        "time": 0.0
+      },
+      {
+        "name": "get_clipboard_data",
+        "time": 0.0
+      },
+      {
+        "name": "sets_autoconfig_url",
+        "time": 0.0
+      },
+      {
+        "name": "spoofs_procname",
+        "time": 0.0
+      },
+      {
+        "name": "stack_pivot",
+        "time": 0.0
+      },
+      {
+        "name": "stack_pivot_file_created",
+        "time": 0.0
+      },
+      {
+        "name": "stack_pivot_process_create",
+        "time": 0.0
+      },
+      {
+        "name": "set_clipboard_data",
+        "time": 0.0
+      },
+      {
+        "name": "stealth_childproc",
+        "time": 0.0
+      },
+      {
+        "name": "stealth_file",
+        "time": 0.0
+      },
+      {
+        "name": "stealth_window",
+        "time": 0.0
+      },
+      {
+        "name": "queries_keyboard_layout",
+        "time": 0.0
+      },
+      {
+        "name": "queries_locale_api",
+        "time": 0.0
+      },
+      {
+        "name": "terminates_remote_process",
+        "time": 0.0
+      },
+      {
+        "name": "user_enum",
+        "time": 0.0
+      },
+      {
+        "name": "virus",
+        "time": 0.0
+      },
+      {
+        "name": "webmail_phish",
+        "time": 0.0
+      },
+      {
+        "name": "persists_dev_util",
+        "time": 0.0
+      },
+      {
+        "name": "spawns_dev_util",
+        "time": 0.0
+      },
+      {
+        "name": "alters_windows_utility",
+        "time": 0.0
+      },
+      {
+        "name": "overwrites_accessibility_utility",
+        "time": 0.0
+      },
+      {
+        "name": "Potential_Lateral_Movement_Via_SMBEXEC",
+        "time": 0.0
+      },
+      {
+        "name": "potential_WebShell_Via_ScreenConnectServer",
+        "time": 0.0
+      },
+      {
+        "name": "uses_Microsoft_HTML_Help_Executable",
+        "time": 0.0
+      },
+      {
+        "name": "transient_kernel_driver",
+        "time": 0.0
+      },
+      {
+        "name": "wiper_activity_log",
+        "time": 0.0
+      },
+      {
+        "name": "wiper_disk_fill_attack",
+        "time": 0.0
+      },
+      {
+        "name": "wiper_epmntdrv_rawdisk",
+        "time": 0.0
+      },
+      {
+        "name": "wiper_zeroedbytes",
+        "time": 0.0
+      },
+      {
+        "name": "wiper_zeroedbytes_large_file",
+        "time": 0.0
+      },
+      {
+        "name": "wmi_create_process",
+        "time": 0.0
+      },
+      {
+        "name": "wmi_script_process",
+        "time": 0.0
+      },
+      {
+        "name": "antianalysis_tls_section",
+        "time": 0.0
+      },
+      {
+        "name": "antivirus_clamav",
+        "time": 0.0
+      },
+      {
+        "name": "antivirus_virustotal",
+        "time": 0.0
+      },
+      {
+        "name": "bad_certs",
+        "time": 0.0
+      },
+      {
+        "name": "bad_ssl_certs",
+        "time": 0.0
+      },
+      {
+        "name": "banker_zeus_p2p",
+        "time": 0.0
+      },
+      {
+        "name": "banker_zeus_url",
+        "time": 0.0
+      },
+      {
+        "name": "binary_yara",
+        "time": 0.0
+      },
+      {
+        "name": "bot_athenahttp",
+        "time": 0.0
+      },
+      {
+        "name": "bot_dirtjumper",
+        "time": 0.0
+      },
+      {
+        "name": "bot_drive",
+        "time": 0.0
+      },
+      {
+        "name": "bot_drive2",
+        "time": 0.0
+      },
+      {
+        "name": "bot_madness",
+        "time": 0.0
+      },
+      {
+        "name": "byod_loldrivers_match",
+        "time": 0.0
+      },
+      {
+        "name": "byod_novel_driver",
+        "time": 0.0
+      },
+      {
+        "name": "byod_post_load_exploitation",
+        "time": 0.0
+      },
+      {
+        "name": "byod_driver_service_install",
+        "time": 0.0
+      },
+      {
+        "name": "com_spawned_process",
+        "time": 0.0
+      },
+      {
+        "name": "phishing_kit_detected",
+        "time": 0.0
+      },
+      {
+        "name": "family_proxyback",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_antianalysis",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_collection",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_communication",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_compiler",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_datamanipulation",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_executable",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_hostinteraction",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_impact",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_lib",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_linking",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_loadcode",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_malwarefamily",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_nursery",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_persistence",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_runtime",
+        "time": 0.0
+      },
+      {
+        "name": "flare_capa_targeting",
+        "time": 0.0
+      },
+      {
+        "name": "threatfox",
+        "time": 0.0
+      },
+      {
+        "name": "log4shell",
+        "time": 0.0
+      },
+      {
+        "name": "mimics_extension",
+        "time": 0.0
+      },
+      {
+        "name": "network_country_distribution",
+        "time": 0.0
+      },
+      {
+        "name": "network_cnc_http",
+        "time": 0.0
+      },
+      {
+        "name": "network_ip_exe",
+        "time": 0.0
+      },
+      {
+        "name": "network_dga",
+        "time": 0.0
+      },
+      {
+        "name": "network_dga_fraunhofer",
+        "time": 0.0
+      },
+      {
+        "name": "network_dyndns",
+        "time": 0.0
+      },
+      {
+        "name": "network_excessive_udp",
+        "time": 0.0
+      },
+      {
+        "name": "network_http",
+        "time": 0.0
+      },
+      {
+        "name": "network_icmp",
+        "time": 0.0
+      },
+      {
+        "name": "network_irc",
+        "time": 0.0
+      },
+      {
+        "name": "network_open_proxy",
+        "time": 0.0
+      },
+      {
+        "name": "network_questionable_http_path",
+        "time": 0.0
+      },
+      {
+        "name": "network_questionable_https_path",
+        "time": 0.0
+      },
+      {
+        "name": "network_smtp",
+        "time": 0.0
+      },
+      {
+        "name": "network_torgateway",
+        "time": 0.0
+      },
+      {
+        "name": "origin_langid",
+        "time": 0.0
+      },
+      {
+        "name": "origin_resource_langid",
+        "time": 0.0
+      },
+      {
+        "name": "overlay",
+        "time": 0.0
+      },
+      {
+        "name": "pe_deep_entrypoint",
+        "time": 0.0
+      },
+      {
+        "name": "pe_entrypoint_in_non_code_section",
+        "time": 0.0
+      },
+      {
+        "name": "pe_entrypoint_outside_sections",
+        "time": 0.0
+      },
+      {
+        "name": "pe_exports_in_executable",
+        "time": 0.0
+      },
+      {
+        "name": "pe_section_vsize_rsize_anomaly",
+        "time": 0.0
+      },
+      {
+        "name": "pe_tls_callbacks",
+        "time": 0.0
+      },
+      {
+        "name": "pe_writable_executable_section",
+        "time": 0.0
+      },
+      {
+        "name": "packer_unknown_pe_section_name",
+        "time": 0.0
+      },
+      {
+        "name": "packer_aspack",
+        "time": 0.0
+      },
+      {
+        "name": "packer_aspirecrypt",
+        "time": 0.0
+      },
+      {
+        "name": "packer_bedsprotector",
+        "time": 0.0
+      },
+      {
+        "name": "packer_confuser",
+        "time": 0.0
+      },
+      {
+        "name": "packer_enigma",
+        "time": 0.0
+      },
+      {
+        "name": "packer_entropy",
+        "time": 0.0
+      },
+      {
+        "name": "packer_mpress",
+        "time": 0.0
+      },
+      {
+        "name": "packer_nate",
+        "time": 0.0
+      },
+      {
+        "name": "packer_nspack",
+        "time": 0.0
+      },
+      {
+        "name": "packer_smartassembly",
+        "time": 0.0
+      },
+      {
+        "name": "packer_spices",
+        "time": 0.0
+      },
+      {
+        "name": "packer_themida",
+        "time": 0.0
+      },
+      {
+        "name": "packer_titan",
+        "time": 0.0
+      },
+      {
+        "name": "packer_upx",
+        "time": 0.0
+      },
+      {
+        "name": "packer_vmprotect",
+        "time": 0.0
+      },
+      {
+        "name": "packer_yoda",
+        "time": 0.0
+      },
+      {
+        "name": "pdf_annot_urls_checker",
+        "time": 0.0
+      },
+      {
+        "name": "pe_cert_invalid_signature",
+        "time": 0.0
+      },
+      {
+        "name": "pe_cert_self_signed",
+        "time": 0.0
+      },
+      {
+        "name": "pe_cert_suspicious_issuer",
+        "time": 0.0
+      },
+      {
+        "name": "polymorphic",
+        "time": 0.0
+      },
+      {
+        "name": "punch_plus_plus_pcres",
+        "time": 0.0
+      },
+      {
+        "name": "procmem_yara",
+        "time": 0.0
+      },
+      {
+        "name": "recon_checkip",
+        "time": 0.0
+      },
+      {
+        "name": "sigma_events",
+        "time": 0.0
+      },
+      {
+        "name": "static_authenticode",
+        "time": 0.0
+      },
+      {
+        "name": "invalid_authenticode_signature",
+        "time": 0.0
+      },
+      {
+        "name": "static_dotnet_anomaly",
+        "time": 0.0
+      },
+      {
+        "name": "static_java",
+        "time": 0.0
+      },
+      {
+        "name": "static_pdf",
+        "time": 0.0
+      },
+      {
+        "name": "contains_pe_overlay",
+        "time": 0.0
+      },
+      {
+        "name": "static_pe_anomaly",
+        "time": 0.0
+      },
+      {
+        "name": "pe_compile_timestomping",
+        "time": 0.0
+      },
+      {
+        "name": "static_pe_pdbpath",
+        "time": 0.0
+      },
+      {
+        "name": "static_rat_config",
+        "time": 0.0
+      },
+      {
+        "name": "static_versioninfo_anomaly",
+        "time": 0.0
+      },
+      {
+        "name": "browser_credential_theft_headless",
+        "time": 0.0
+      },
+      {
+        "name": "suricata_alert",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_html_body",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_html_name",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_html_title",
+        "time": 0.0
+      },
+      {
+        "name": "volatility_devicetree_1",
+        "time": 0.0
+      },
+      {
+        "name": "volatility_handles_1",
+        "time": 0.0
+      },
+      {
+        "name": "volatility_ldrmodules_1",
+        "time": 0.0
+      },
+      {
+        "name": "volatility_ldrmodules_2",
+        "time": 0.0
+      },
+      {
+        "name": "volatility_malfind_1",
+        "time": 0.0
+      },
+      {
+        "name": "volatility_malfind_2",
+        "time": 0.0
+      },
+      {
+        "name": "volatility_modscan_1",
+        "time": 0.0
+      },
+      {
+        "name": "volatility_svcscan_1",
+        "time": 0.0
+      },
+      {
+        "name": "volatility_svcscan_2",
+        "time": 0.0
+      },
+      {
+        "name": "volatility_svcscan_3",
+        "time": 0.0
+      },
+      {
+        "name": "whois_create",
+        "time": 0.0
+      },
+      {
+        "name": "accesses_mailslot",
+        "time": 0.0
+      },
+      {
+        "name": "accesses_netlogon_regkey",
+        "time": 0.0
+      },
+      {
+        "name": "accesses_public_folder",
+        "time": 0.0
+      },
+      {
+        "name": "accesses_sysvol",
+        "time": 0.0
+      },
+      {
+        "name": "writes_sysvol",
+        "time": 0.0
+      },
+      {
+        "name": "adds_admin_user",
+        "time": 0.0
+      },
+      {
+        "name": "adds_user",
+        "time": 0.0
+      },
+      {
+        "name": "overwrites_admin_password",
+        "time": 0.0
+      },
+      {
+        "name": "antianalysis_detectfile",
+        "time": 0.001
+      },
+      {
+        "name": "antianalysis_detectreg",
+        "time": 0.001
+      },
+      {
+        "name": "modify_attachment_manager",
+        "time": 0.0
+      },
+      {
+        "name": "antiav_detectfile",
+        "time": 0.001
+      },
+      {
+        "name": "antiav_detectreg",
+        "time": 0.002
+      },
+      {
+        "name": "antiav_srp",
+        "time": 0.0
+      },
+      {
+        "name": "antiav_whitespace",
+        "time": 0.0
+      },
+      {
+        "name": "antidebug_devices",
+        "time": 0.0
+      },
+      {
+        "name": "antiemu_windefend",
+        "time": 0.0
+      },
+      {
+        "name": "antiemu_wine_reg",
+        "time": 0.0
+      },
+      {
+        "name": "antisandbox_cuckoo_files",
+        "time": 0.0
+      },
+      {
+        "name": "antisandbox_fortinet_files",
+        "time": 0.0
+      },
+      {
+        "name": "antisandbox_joe_anubis_files",
+        "time": 0.0
+      },
+      {
+        "name": "antisandbox_sboxie_mutex",
+        "time": 0.0
+      },
+      {
+        "name": "antisandbox_sunbelt_files",
+        "time": 0.0
+      },
+      {
+        "name": "antisandbox_threattrack_files",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_bochs_keys",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_generic_bios",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_generic_diskreg",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_hyperv_keys",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_parallels_keys",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_recentdocs",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_vbox_devices",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_vbox_files",
+        "time": 0.001
+      },
+      {
+        "name": "antivm_vbox_keys",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_vmware_devices",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_vmware_files",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_vmware_keys",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_vmware_mutexes",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_vpc_files",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_vpc_keys",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_vpc_mutex",
+        "time": 0.0
+      },
+      {
+        "name": "antivm_xen_keys",
+        "time": 0.0
+      },
+      {
+        "name": "ketrican_regkeys",
+        "time": 0.0
+      },
+      {
+        "name": "bitcoin_opencl",
+        "time": 0.0
+      },
+      {
+        "name": "enumerates_physical_drives",
+        "time": 0.0
+      },
+      {
+        "name": "bot_russkill",
+        "time": 0.0
+      },
+      {
+        "name": "browser_addon",
+        "time": 0.0
+      },
+      {
+        "name": "chromium_browser_extension_directory",
+        "time": 0.0
+      },
+      {
+        "name": "browser_helper_object",
+        "time": 0.0
+      },
+      {
+        "name": "browser_security",
+        "time": 0.001
+      },
+      {
+        "name": "browser_startpage",
+        "time": 0.0
+      },
+      {
+        "name": "executes_headless_browser",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_browser_arguments",
+        "time": 0.001
+      },
+      {
+        "name": "ie_disables_process_tab",
+        "time": 0.0
+      },
+      {
+        "name": "odbcconf_bypass",
+        "time": 0.0
+      },
+      {
+        "name": "squiblydoo_bypass",
+        "time": 0.0
+      },
+      {
+        "name": "squiblytwo_bypass",
+        "time": 0.0
+      },
+      {
+        "name": "bypass_chromium_protection",
+        "time": 0.0
+      },
+      {
+        "name": "bypass_firewall",
+        "time": 0.0
+      },
+      {
+        "name": "checks_uac_status",
+        "time": 0.0
+      },
+      {
+        "name": "uac_bypass_cmstpcom",
+        "time": 0.0
+      },
+      {
+        "name": "uac_bypass_delegateexecute_sdclt",
+        "time": 0.0
+      },
+      {
+        "name": "uac_bypass_fodhelper",
+        "time": 0.0
+      },
+      {
+        "name": "cape_extracted_content",
+        "time": 0.0
+      },
+      {
+        "name": "clears_logs",
+        "time": 0.0
+      },
+      {
+        "name": "cmdline_obfuscation",
+        "time": 0.0
+      },
+      {
+        "name": "cmdline_switches",
+        "time": 0.0
+      },
+      {
+        "name": "cmdline_terminate",
+        "time": 0.0
+      },
+      {
+        "name": "cmdline_forfiles_wildcard",
+        "time": 0.0
+      },
+      {
+        "name": "cmdline_http_link",
+        "time": 0.0
+      },
+      {
+        "name": "cmdline_long_string",
+        "time": 0.0
+      },
+      {
+        "name": "cmdline_reversed_http_link",
+        "time": 0.0
+      },
+      {
+        "name": "long_commandline",
+        "time": 0.0
+      },
+      {
+        "name": "powershell_renamed_commandline",
+        "time": 0.0
+      },
+      {
+        "name": "copies_self",
+        "time": 0.0
+      },
+      {
+        "name": "credwiz_credentialaccess",
+        "time": 0.0
+      },
+      {
+        "name": "enables_wdigest",
+        "time": 0.0
+      },
+      {
+        "name": "vaultcmd_credentialaccess",
+        "time": 0.0
+      },
+      {
+        "name": "file_credential_store_access",
+        "time": 0.0
+      },
+      {
+        "name": "file_credential_store_write",
+        "time": 0.0
+      },
+      {
+        "name": "kerberos_credential_access_via_rubeus",
+        "time": 0.0
+      },
+      {
+        "name": "registry_credential_dumping",
+        "time": 0.0
+      },
+      {
+        "name": "registry_credential_store_access",
+        "time": 0.0
+      },
+      {
+        "name": "registry_lsa_secrets_access",
+        "time": 0.0
+      },
+      {
+        "name": "comsvcs_credentialdump",
+        "time": 0.0
+      },
+      {
+        "name": "cryptomining_stratum_command",
+        "time": 0.0
+      },
+      {
+        "name": "deepfreeze_mutex",
+        "time": 0.0
+      },
+      {
+        "name": "deletes_executed_files",
+        "time": 0.0
+      },
+      {
+        "name": "disables_app_launch",
+        "time": 0.0
+      },
+      {
+        "name": "disables_auto_app_termination",
+        "time": 0.0
+      },
+      {
+        "name": "disables_appv_virtualization",
+        "time": 0.0
+      },
+      {
+        "name": "disables_backups",
+        "time": 0.001
+      },
+      {
+        "name": "disables_browser_warn",
+        "time": 0.001
+      },
+      {
+        "name": "disables_context_menus",
+        "time": 0.0
+      },
+      {
+        "name": "disables_cpl_disable",
+        "time": 0.0
+      },
+      {
+        "name": "disables_crashdumps",
+        "time": 0.0
+      },
+      {
+        "name": "disables_event_logging",
+        "time": 0.0
+      },
+      {
+        "name": "disables_folder_options",
+        "time": 0.0
+      },
+      {
+        "name": "disables_notificationcenter",
+        "time": 0.0
+      },
+      {
+        "name": "disables_power_options",
+        "time": 0.0
+      },
+      {
+        "name": "disables_restore_default_state",
+        "time": 0.0
+      },
+      {
+        "name": "disables_run_command",
+        "time": 0.0
+      },
+      {
+        "name": "disables_smartscreen",
+        "time": 0.0
+      },
+      {
+        "name": "disables_startmenu_search",
+        "time": 0.0
+      },
+      {
+        "name": "disables_system_restore",
+        "time": 0.0
+      },
+      {
+        "name": "disables_uac",
+        "time": 0.0
+      },
+      {
+        "name": "disables_wer",
+        "time": 0.0
+      },
+      {
+        "name": "disables_windows_defender",
+        "time": 0.0
+      },
+      {
+        "name": "disables_windows_defender_logging",
+        "time": 0.0
+      },
+      {
+        "name": "removes_windows_defender_contextmenu",
+        "time": 0.0
+      },
+      {
+        "name": "removes_windows_defender_updates",
+        "time": 0.0
+      },
+      {
+        "name": "windows_defender_powershell",
+        "time": 0.0
+      },
+      {
+        "name": "disables_windows_file_protection",
+        "time": 0.0
+      },
+      {
+        "name": "disables_windowsupdate",
+        "time": 0.0
+      },
+      {
+        "name": "disables_winfirewall",
+        "time": 0.0
+      },
+      {
+        "name": "folder_enumeration",
+        "time": 0.0
+      },
+      {
+        "name": "discover_registry_mount_points",
+        "time": 0.0
+      },
+      {
+        "name": "adfind_domain_enumeration",
+        "time": 0.0
+      },
+      {
+        "name": "domain_enumeration_commands",
+        "time": 0.0
+      },
+      {
+        "name": "driver_filtermanager",
+        "time": 0.0
+      },
+      {
+        "name": "dropper",
+        "time": 0.0
+      },
+      {
+        "name": "dll_archive_execution",
+        "time": 0.0
+      },
+      {
+        "name": "lnk_archive_execution",
+        "time": 0.0
+      },
+      {
+        "name": "script_archive_execution",
+        "time": 0.0
+      },
+      {
+        "name": "excel4_macro_urls",
+        "time": 0.0
+      },
+      {
+        "name": "escalate_privilege_via_ntlm_relay",
+        "time": 0.0
+      },
+      {
+        "name": "spooler_access",
+        "time": 0.0
+      },
+      {
+        "name": "spooler_svc_start",
+        "time": 0.0
+      },
+      {
+        "name": "file_ownership_takeover",
+        "time": 0.0
+      },
+      {
+        "name": "mapped_drives_uac",
+        "time": 0.0
+      },
+      {
+        "name": "hides_recycle_bin_icon",
+        "time": 0.0
+      },
+      {
+        "name": "infostealer_bitcoin",
+        "time": 0.001
+      },
+      {
+        "name": "infostealer_ftp",
+        "time": 0.001
+      },
+      {
+        "name": "infostealer_im",
+        "time": 0.001
+      },
+      {
+        "name": "infostealer_mail",
+        "time": 0.001
+      },
+      {
+        "name": "Evade_Execution_Via_ASPNet_Compiler",
+        "time": 0.0
+      },
+      {
+        "name": "Evade_Execute_Via_DeviceCredentialDeployment",
+        "time": 0.0
+      },
+      {
+        "name": "Evade_Execution_Via_Filter_Manager_Control",
+        "time": 0.0
+      },
+      {
+        "name": "Evade_Execution_Via_Intel_GFXDownloadWrapper",
+        "time": 0.0
+      },
+      {
+        "name": "execute_binary_via_appvlp",
+        "time": 0.0
+      },
+      {
+        "name": "execute_binary_via_pcalua",
+        "time": 0.0
+      },
+      {
+        "name": "Execute_Binary_Via_OpenSSH",
+        "time": 0.0
+      },
+      {
+        "name": "execute_binary_via_pcalua",
+        "time": 0.0
+      },
+      {
+        "name": "Execute_Binary_Via_PesterPSModule",
+        "time": 0.0
+      },
+      {
+        "name": "Execute_Binary_Via_ScriptRunner",
+        "time": 0.0
+      },
+      {
+        "name": "execute_binary_via_ttdinject",
+        "time": 0.0
+      },
+      {
+        "name": "Execute_Binary_Via_VisualStudioLiveShare",
+        "time": 0.0
+      },
+      {
+        "name": "Execute_Msiexec_Via_Explorer",
+        "time": 0.0
+      },
+      {
+        "name": "execute_remote_msi",
+        "time": 0.0
+      },
+      {
+        "name": "execute_suspicious_powershell_via_runscripthelper",
+        "time": 0.0
+      },
+      {
+        "name": "execute_suspicious_powershell_via_sqlps",
+        "time": 0.0
+      },
+      {
+        "name": "Indirect_Command_Execution_Via_ConsoleWindowHost",
+        "time": 0.0
+      },
+      {
+        "name": "Perform_Malicious_Activities_Via_Headless_Browser",
+        "time": 0.0
+      },
+      {
+        "name": "Register_DLL_Via_CertOC",
+        "time": 0.0
+      },
+      {
+        "name": "Register_DLL_Via_MSIEXEC",
+        "time": 0.0
+      },
+      {
+        "name": "Register_DLL_Via_Odbcconf",
+        "time": 0.0
+      },
+      {
+        "name": "Scriptlet_Proxy_Execution_Via_Pubprn",
+        "time": 0.0
+      },
+      {
+        "name": "ie_martian_children",
+        "time": 0.0
+      },
+      {
+        "name": "office_martian_children",
+        "time": 0.0
+      },
+      {
+        "name": "mimics_icon",
+        "time": 0.0
+      },
+      {
+        "name": "masquerade_process_name",
+        "time": 0.001
+      },
+      {
+        "name": "mimikatz_modules",
+        "time": 0.0
+      },
+      {
+        "name": "ms_office_cmd_rce",
+        "time": 0.0
+      },
+      {
+        "name": "mount_copy_to_webdav_share",
+        "time": 0.0
+      },
+      {
+        "name": "potential_protocol_tunneling_via_legit_utilities",
+        "time": 0.0
+      },
+      {
+        "name": "potential_protocol_tunneling_via_qemu",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_execution_via_dotnet_remoting",
+        "time": 0.0
+      },
+      {
+        "name": "modify_certs",
+        "time": 0.0
+      },
+      {
+        "name": "dotnet_clr_usagelog_regkeys",
+        "time": 0.0
+      },
+      {
+        "name": "modify_hostfile",
+        "time": 0.0
+      },
+      {
+        "name": "modify_oem_information",
+        "time": 0.0
+      },
+      {
+        "name": "modify_security_center_warnings",
+        "time": 0.0
+      },
+      {
+        "name": "modify_uac_prompt",
+        "time": 0.0
+      },
+      {
+        "name": "network_dns_blockchain",
+        "time": 0.0
+      },
+      {
+        "name": "network_dns_opennic",
+        "time": 0.0
+      },
+      {
+        "name": "network_dns_paste_site",
+        "time": 0.0
+      },
+      {
+        "name": "network_dns_reverse_proxy",
+        "time": 0.0
+      },
+      {
+        "name": "network_dns_temp_file_storage",
+        "time": 0.0
+      },
+      {
+        "name": "network_dns_temp_urldns",
+        "time": 0.0
+      },
+      {
+        "name": "network_dns_url_shortener",
+        "time": 0.0
+      },
+      {
+        "name": "network_dns_doh_tls",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_tld",
+        "time": 0.0
+      },
+      {
+        "name": "network_tor_service",
+        "time": 0.0
+      },
+      {
+        "name": "office_code_page",
+        "time": 0.0
+      },
+      {
+        "name": "office_addinloading",
+        "time": 0.0
+      },
+      {
+        "name": "office_perfkey",
+        "time": 0.0
+      },
+      {
+        "name": "office_macro",
+        "time": 0.0
+      },
+      {
+        "name": "changes_trust_center_settings",
+        "time": 0.0
+      },
+      {
+        "name": "disables_vba_trust_access",
+        "time": 0.0
+      },
+      {
+        "name": "office_macro_autoexecution",
+        "time": 0.0
+      },
+      {
+        "name": "office_macro_ioc",
+        "time": 0.0
+      },
+      {
+        "name": "office_macro_malicious_prediction",
+        "time": 0.0
+      },
+      {
+        "name": "office_macro_suspicious",
+        "time": 0.0
+      },
+      {
+        "name": "rtf_aslr_bypass",
+        "time": 0.0
+      },
+      {
+        "name": "rtf_anomaly_characterset",
+        "time": 0.0
+      },
+      {
+        "name": "rtf_anomaly_version",
+        "time": 0.0
+      },
+      {
+        "name": "rtf_embedded_content",
+        "time": 0.0
+      },
+      {
+        "name": "rtf_embedded_office_file",
+        "time": 0.0
+      },
+      {
+        "name": "rtf_exploit_static",
+        "time": 0.0
+      },
+      {
+        "name": "office_security",
+        "time": 0.0
+      },
+      {
+        "name": "accesses_office_username",
+        "time": 0.0
+      },
+      {
+        "name": "office_anomalous_feature",
+        "time": 0.0
+      },
+      {
+        "name": "office_dde_command",
+        "time": 0.0
+      },
+      {
+        "name": "packer_armadillo_mutex",
+        "time": 0.0
+      },
+      {
+        "name": "packer_armadillo_regkey",
+        "time": 0.0
+      },
+      {
+        "name": "persistence_safeboot",
+        "time": 0.0
+      },
+      {
+        "name": "persistence_ifeo",
+        "time": 0.0
+      },
+      {
+        "name": "persistence_silent_process_exit",
+        "time": 0.0
+      },
+      {
+        "name": "persistence_rdp_registry",
+        "time": 0.0
+      },
+      {
+        "name": "persistence_rdp_shadowing",
+        "time": 0.0
+      },
+      {
+        "name": "persistence_shim_database",
+        "time": 0.0
+      },
+      {
+        "name": "powershell_scriptblock_logging",
+        "time": 0.0
+      },
+      {
+        "name": "powershell_command_suspicious",
+        "time": 0.0
+      },
+      {
+        "name": "powershell_history_save_mod",
+        "time": 0.0
+      },
+      {
+        "name": "powershell_renamed",
+        "time": 0.0
+      },
+      {
+        "name": "powershell_reversed",
+        "time": 0.0
+      },
+      {
+        "name": "powershell_variable_obfuscation",
+        "time": 0.0
+      },
+      {
+        "name": "prevents_safeboot",
+        "time": 0.0
+      },
+      {
+        "name": "cmdline_process_discovery",
+        "time": 0.0
+      },
+      {
+        "name": "ransomware_extensions_generic",
+        "time": 0.0
+      },
+      {
+        "name": "ransomware_extensions_known",
+        "time": 0.002
+      },
+      {
+        "name": "ransomware_files",
+        "time": 0.004
+      },
+      {
+        "name": "ransomware_recyclebin",
+        "time": 0.0
+      },
+      {
+        "name": "ransomware_revil_regkey",
+        "time": 0.0
+      },
+      {
+        "name": "reads_password_database",
+        "time": 0.0
+      },
+      {
+        "name": "recon_fingerprint",
+        "time": 0.0
+      },
+      {
+        "name": "rdptcp_key",
+        "time": 0.0
+      },
+      {
+        "name": "uses_rdp_clip",
+        "time": 0.0
+      },
+      {
+        "name": "uses_remote_desktop_session",
+        "time": 0.0
+      },
+      {
+        "name": "removes_networking_icon",
+        "time": 0.0
+      },
+      {
+        "name": "removes_pinned_programs",
+        "time": 0.0
+      },
+      {
+        "name": "removes_security_maintenance_icon",
+        "time": 0.0
+      },
+      {
+        "name": "removes_startmenu_defaults",
+        "time": 0.0
+      },
+      {
+        "name": "removes_username_startmenu",
+        "time": 0.0
+      },
+      {
+        "name": "sniffer_winpcap",
+        "time": 0.0
+      },
+      {
+        "name": "spreading_autoruninf",
+        "time": 0.0
+      },
+      {
+        "name": "stealth_hidden_extension",
+        "time": 0.0
+      },
+      {
+        "name": "stealth_hiddenreg",
+        "time": 0.0
+      },
+      {
+        "name": "stealth_hide_notifications",
+        "time": 0.0
+      },
+      {
+        "name": "stealth_webhistory",
+        "time": 0.0
+      },
+      {
+        "name": "sysinternals_psexec",
+        "time": 0.0
+      },
+      {
+        "name": "sysinternals_tools",
+        "time": 0.0
+      },
+      {
+        "name": "language_check_registry",
+        "time": 0.0
+      },
+      {
+        "name": "tampers_etw",
+        "time": 0.0
+      },
+      {
+        "name": "lsa_tampering",
+        "time": 0.0
+      },
+      {
+        "name": "tampers_powershell_logging",
+        "time": 0.0
+      },
+      {
+        "name": "territorial_disputes_sigs",
+        "time": 0.001
+      },
+      {
+        "name": "uses_adfind",
+        "time": 0.0
+      },
+      {
+        "name": "uses_ms_protocol",
+        "time": 0.0
+      },
+      {
+        "name": "owa_web_shell_files",
+        "time": 0.0
+      },
+      {
+        "name": "web_shell_files",
+        "time": 0.0
+      },
+      {
+        "name": "web_shell_processes",
+        "time": 0.0
+      },
+      {
+        "name": "dotnet_csc_build",
+        "time": 0.0
+      },
+      {
+        "name": "mavinject_lolbin",
+        "time": 0.0
+      },
+      {
+        "name": "multiple_explorer_instances",
+        "time": 0.0
+      },
+      {
+        "name": "script_tool_executed",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_certutil_use",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_command_tools",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_mpcmdrun_use",
+        "time": 0.0
+      },
+      {
+        "name": "suspicious_ping_use",
+        "time": 0.0
+      },
+      {
+        "name": "uses_powershell_copyitem",
+        "time": 0.0
+      },
+      {
+        "name": "uses_windows_utilities",
+        "time": 0.0
+      },
+      {
+        "name": "uses_windows_utilities_appcmd",
+        "time": 0.0
+      },
+      {
+        "name": "uses_windows_utilities_csvde_ldifde",
+        "time": 0.0
+      },
+      {
+        "name": "uses_windows_utilities_cipher",
+        "time": 0.0
+      },
+      {
+        "name": "uses_windows_utilities_clickonce",
+        "time": 0.0
+      },
+      {
+        "name": "uses_windows_utilities_curl",
+        "time": 0.0
+      },
+      {
+        "name": "uses_windows_utilities_dsquery",
+        "time": 0.0
+      },
+      {
+        "name": "uses_windows_utilities_esentutl",
+        "time": 0.0
+      },
+      {
+        "name": "uses_windows_utilities_finger",
+        "time": 0.0
+      },
+      {
+        "name": "uses_windows_utilities_mode",
+        "time": 0.0
+      },
+      {
+        "name": "uses_windows_utilities_ntdsutil",
+        "time": 0.0
+      },
+      {
+        "name": "uses_windows_utilities_nltest",
+        "time": 0.0
+      },
+      {
+        "name": "uses_windows_utilities_setx",
+        "time": 0.0
+      },
+      {
+        "name": "uses_windows_utilities_xcopy",
+        "time": 0.0
+      },
+      {
+        "name": "wmic_command_suspicious",
+        "time": 0.0
+      },
+      {
+        "name": "wiper_commandline_disk_destruction",
+        "time": 0.0
+      },
+      {
+        "name": "wiper_recycle_bin_destruction",
+        "time": 0.0
+      },
+      {
+        "name": "wiper_rmdir_drive",
+        "time": 0.0
+      },
+      {
+        "name": "scrcons_wmi_script_consumer",
+        "time": 0.0
+      }
+    ],
+    "reporting": [
+      {
+        "name": "BinGraph",
+        "time": 0.0
+      }
+    ]
+  },
+  "target": {
+    "category": "file",
+    "file": {
+      "name": "pafish64.exe",
+      "path": "/opt/CAPEv2/storage/binaries/ff24b9da6cddd77f8c19169134eb054130567825eee1008b5a32244e1028e76f",
+      "guest_paths": "",
+      "size": 121344,
+      "crc32": "31761287",
+      "md5": "4b6229d1b32d7346cf4c8312a8bc7925",
+      "sha1": "4d83e18a7e1650b4f9bb5e866ea4ad97a21522bd",
+      "sha256": "ff24b9da6cddd77f8c19169134eb054130567825eee1008b5a32244e1028e76f",
+      "sha512": "804f7e663f3a4e03f99e19f7ad8e89362c9d11793ece2e0716f86bce020f6ce95766fc4f6e686375b73d0b6765cc75029d8d6527abe0777b91ec807f81c7146a",
+      "rh_hash": null,
+      "ssdeep": "3072:wgjIzC10pKQ6PbNehdv3I0lmPendNyrOMGTkrNRD:wgSCuMDendVMGTuNR",
+      "type": "PE32+ executable (console) x86-64, for MS Windows",
+      "yara": [
+        {
+          "name": "INDICATOR_SUSPICIOUS_Sandbox_Evasion_VirtDrvComb",
+          "meta": {
+            "author": "ditekSHen",
+            "description": "Detects executables referencing combination of virtualization drivers"
+          },
+          "strings": [
+            "VBoxMouse.sys",
+            "VBoxGuest.sys",
+            "VBoxSF.sys",
+            "VBoxVideo.sys",
+            "vboxdisp.dll",
+            "vboxhook.dll",
+            "vboxmrxnp.dll",
+            "vboxogl.dll",
+            "vboxoglarrayspu.dll",
+            "vboxoglcrutil.dll",
+            "vboxoglerrorspu.dll",
+            "vboxoglfeedbackspu.dll",
+            "vboxoglpackspu.dll",
+            "vboxoglpassthroughspu.dll",
+            "vboxservice.exe",
+            "vboxtray.exe",
+            "VBoxControl.exe",
+            "vmmouse.sys",
+            "vmhgfs.sys",
+            "hgfs.sys"
+          ],
+          "addresses": {
+            "vb1": 56596,
+            "vb2": 56644,
+            "vb3": 56692,
+            "vb4": 56732,
+            "vb5": 56812,
+            "vb6": 56852,
+            "vb7": 56892,
+            "vb8": 56932,
+            "vb9": 56964,
+            "vb10": 57004,
+            "vb11": 57044,
+            "vb12": 57084,
+            "vb13": 57132,
+            "vb14": 57172,
+            "vb15": 57640,
+            "vb16": 57704,
+            "vb17": 57300,
+            "vw1": 58412,
+            "vw4": 58452,
+            "vw6": 58454
+          }
+        },
+        {
+          "name": "INDICATOR_SUSPICIOUS_VM_Evasion_MACAddrComb",
+          "meta": {
+            "author": "ditekSHen",
+            "description": "Detects executables referencing virtualization MAC addresses"
+          },
+          "strings": [
+            "00:05:69",
+            "00:0C:29",
+            "00:1C:14",
+            "00:50:56",
+            "08:00:27"
+          ],
+          "addresses": {
+            "s2": 54664,
+            "s3": 54674,
+            "s5": 54684,
+            "s7": 54696,
+            "s8": 53592
+          }
+        },
+        {
+          "name": "vmdetect",
+          "meta": {
+            "author": "nex",
+            "description": "Possibly employs anti-virtualization techniques"
+          },
+          "strings": [
+            "hgfs.sys",
+            "mhgfs.sys",
+            "vmmouse.sys",
+            "VMware",
+            "vmware",
+            "VMWare",
+            "VMWARE",
+            "XenVMM",
+            "vboxhook.dll",
+            "vboxservice",
+            "VBoxService",
+            "VBoxTray",
+            "vboxtray",
+            "VBoxMouse",
+            "VBoxGuest",
+            "VBoxSF",
+            "00:05:69",
+            "00:50:56",
+            "00:0C:29",
+            "00:1C:14",
+            "08:00:27",
+            "SOFTWARE\\Oracle\\VirtualBox Guest Additions"
+          ],
+          "addresses": {
+            "vmware4": 58454,
+            "vmware5": 58453,
+            "vmware20": 58412,
+            "vmware24": 58889,
+            "xen6": 58902,
+            "virtualbox1": 56852,
+            "virtualbox2": 57640,
+            "virtualbox3": 57704,
+            "virtualbox4": 56596,
+            "virtualbox5": 56644,
+            "virtualbox6": 56692,
+            "vmware_mac_1b": 54664,
+            "vmware_mac_2b": 54696,
+            "vmware_mac_3b": 54674,
+            "vmware_mac_4b": 54684,
+            "virtualbox_mac_1b": 53592,
+            "vbox_driver_1": 56112
+          }
+        }
+      ],
+      "cape_yara": [],
+      "clamav": [],
+      "tlsh": "T198C38D2BB6934878C24AC17855D7863167B6BE130630E73F03D4CAB2AE76D506F39E64",
+      "sha3_384": "0b370e050f82510407ad08518a2694613044e26ad5c73cd1be257911764c789d4494a1eebff6110f30d0510416f12f9b",
+      "yara_hash": "613da8fd834281fc6e08fbc9b581f2a654d8a58b29dcd64731c71e941e9f9e85",
+      "options_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "pe": {
+        "guest_signers": {},
+        "digital_signers": [],
+        "imagebase": "0x00400000",
+        "entrypoint": "0x000014e0",
+        "ep_bytes": "4883ec28488b05b5ff0000c700000000",
+        "peid_signatures": null,
+        "reported_checksum": "0x0001ffea",
+        "osversion": "4.0",
+        "machine_type": "IMAGE_FILE_MACHINE_AMD64",
+        "pdbpath": null,
+        "imports": {
+          "ADVAPI32": {
+            "dll": "ADVAPI32.dll",
+            "imports": [
+              {
+                "address": "0x418520",
+                "name": "GetUserNameA"
+              },
+              {
+                "address": "0x418528",
+                "name": "RegCloseKey"
+              },
+              {
+                "address": "0x418530",
+                "name": "RegOpenKeyExA"
+              },
+              {
+                "address": "0x418538",
+                "name": "RegQueryValueExA"
+              }
+            ]
+          },
+          "IPHLPAPI": {
+            "dll": "IPHLPAPI.DLL",
+            "imports": [
+              {
+                "address": "0x418548",
+                "name": "GetAdaptersAddresses"
+              }
+            ]
+          },
+          "KERNEL32": {
+            "dll": "KERNEL32.dll",
+            "imports": [
+              {
+                "address": "0x418558",
+                "name": "CloseHandle"
+              },
+              {
+                "address": "0x418560",
+                "name": "CreateFileA"
+              },
+              {
+                "address": "0x418568",
+                "name": "CreateToolhelp32Snapshot"
+              },
+              {
+                "address": "0x418570",
+                "name": "DeleteCriticalSection"
+              },
+              {
+                "address": "0x418578",
+                "name": "DeviceIoControl"
+              },
+              {
+                "address": "0x418580",
+                "name": "EnterCriticalSection"
+              },
+              {
+                "address": "0x418588",
+                "name": "GetConsoleScreenBufferInfo"
+              },
+              {
+                "address": "0x418590",
+                "name": "GetConsoleWindow"
+              },
+              {
+                "address": "0x418598",
+                "name": "GetCurrentProcess"
+              },
+              {
+                "address": "0x4185a0",
+                "name": "GetDiskFreeSpaceExA"
+              },
+              {
+                "address": "0x4185a8",
+                "name": "GetDriveTypeA"
+              },
+              {
+                "address": "0x4185b0",
+                "name": "GetFileAttributesA"
+              },
+              {
+                "address": "0x4185b8",
+                "name": "GetLastError"
+              },
+              {
+                "address": "0x4185c0",
+                "name": "GetLogicalDriveStringsA"
+              },
+              {
+                "address": "0x4185c8",
+                "name": "GetModuleFileNameA"
+              },
+              {
+                "address": "0x4185d0",
+                "name": "GetModuleHandleA"
+              },
+              {
+                "address": "0x4185d8",
+                "name": "GetProcAddress"
+              },
+              {
+                "address": "0x4185e0",
+                "name": "GetStartupInfoA"
+              },
+              {
+                "address": "0x4185e8",
+                "name": "GetStdHandle"
+              },
+              {
+                "address": "0x4185f0",
+                "name": "GetSystemInfo"
+              },
+              {
+                "address": "0x4185f8",
+                "name": "GetSystemTimeAsFileTime"
+              },
+              {
+                "address": "0x418600",
+                "name": "GetTickCount"
+              },
+              {
+                "address": "0x418608",
+                "name": "GetVersionExA"
+              },
+              {
+                "address": "0x418610",
+                "name": "GlobalMemoryStatusEx"
+              },
+              {
+                "address": "0x418618",
+                "name": "InitializeCriticalSection"
+              },
+              {
+                "address": "0x418620",
+                "name": "IsDBCSLeadByteEx"
+              },
+              {
+                "address": "0x418628",
+                "name": "IsDebuggerPresent"
+              },
+              {
+                "address": "0x418630",
+                "name": "LeaveCriticalSection"
+              },
+              {
+                "address": "0x418638",
+                "name": "LocalAlloc"
+              },
+              {
+                "address": "0x418640",
+                "name": "LocalFree"
+              },
+              {
+                "address": "0x418648",
+                "name": "MultiByteToWideChar"
+              },
+              {
+                "address": "0x418650",
+                "name": "OutputDebugStringA"
+              },
+              {
+                "address": "0x418658",
+                "name": "Process32First"
+              },
+              {
+                "address": "0x418660",
+                "name": "Process32Next"
+              },
+              {
+                "address": "0x418668",
+                "name": "SetConsoleTextAttribute"
+              },
+              {
+                "address": "0x418670",
+                "name": "SetLastError"
+              },
+              {
+                "address": "0x418678",
+                "name": "SetUnhandledExceptionFilter"
+              },
+              {
+                "address": "0x418680",
+                "name": "Sleep"
+              },
+              {
+                "address": "0x418688",
+                "name": "TlsGetValue"
+              },
+              {
+                "address": "0x418690",
+                "name": "VirtualProtect"
+              },
+              {
+                "address": "0x418698",
+                "name": "VirtualQuery"
+              },
+              {
+                "address": "0x4186a0",
+                "name": "WideCharToMultiByte"
+              },
+              {
+                "address": "0x4186a8",
+                "name": "lstrcmpiA"
+              }
+            ]
+          },
+          "MPR": {
+            "dll": "MPR.dll",
+            "imports": [
+              {
+                "address": "0x4186b8",
+                "name": "WNetGetProviderNameA"
+              }
+            ]
+          },
+          "msvcrt": {
+            "dll": "msvcrt.dll",
+            "imports": [
+              {
+                "address": "0x4186c8",
+                "name": "__C_specific_handler"
+              },
+              {
+                "address": "0x4186d0",
+                "name": "___lc_codepage_func"
+              },
+              {
+                "address": "0x4186d8",
+                "name": "___mb_cur_max_func"
+              },
+              {
+                "address": "0x4186e0",
+                "name": "__getmainargs"
+              },
+              {
+                "address": "0x4186e8",
+                "name": "__initenv"
+              },
+              {
+                "address": "0x4186f0",
+                "name": "__iob_func"
+              },
+              {
+                "address": "0x4186f8",
+                "name": "__lconv_init"
+              },
+              {
+                "address": "0x418700",
+                "name": "__set_app_type"
+              },
+              {
+                "address": "0x418708",
+                "name": "__setusermatherr"
+              },
+              {
+                "address": "0x418710",
+                "name": "_acmdln"
+              },
+              {
+                "address": "0x418718",
+                "name": "_amsg_exit"
+              },
+              {
+                "address": "0x418720",
+                "name": "_cexit"
+              },
+              {
+                "address": "0x418728",
+                "name": "_commode"
+              },
+              {
+                "address": "0x418730",
+                "name": "_errno"
+              },
+              {
+                "address": "0x418738",
+                "name": "_fmode"
+              },
+              {
+                "address": "0x418740",
+                "name": "_initterm"
+              },
+              {
+                "address": "0x418748",
+                "name": "_lock"
+              },
+              {
+                "address": "0x418750",
+                "name": "_onexit"
+              },
+              {
+                "address": "0x418758",
+                "name": "_unlock"
+              },
+              {
+                "address": "0x418760",
+                "name": "abort"
+              },
+              {
+                "address": "0x418768",
+                "name": "calloc"
+              },
+              {
+                "address": "0x418770",
+                "name": "exit"
+              },
+              {
+                "address": "0x418778",
+                "name": "fclose"
+              },
+              {
+                "address": "0x418780",
+                "name": "fopen"
+              },
+              {
+                "address": "0x418788",
+                "name": "fprintf"
+              },
+              {
+                "address": "0x418790",
+                "name": "fputc"
+              },
+              {
+                "address": "0x418798",
+                "name": "fputs"
+              },
+              {
+                "address": "0x4187a0",
+                "name": "free"
+              },
+              {
+                "address": "0x4187a8",
+                "name": "fwrite"
+              },
+              {
+                "address": "0x4187b0",
+                "name": "getchar"
+              },
+              {
+                "address": "0x4187b8",
+                "name": "localeconv"
+              },
+              {
+                "address": "0x4187c0",
+                "name": "malloc"
+              },
+              {
+                "address": "0x4187c8",
+                "name": "mbstowcs"
+              },
+              {
+                "address": "0x4187d0",
+                "name": "memcmp"
+              },
+              {
+                "address": "0x4187d8",
+                "name": "memcpy"
+              },
+              {
+                "address": "0x4187e0",
+                "name": "memset"
+              },
+              {
+                "address": "0x4187e8",
+                "name": "rand"
+              },
+              {
+                "address": "0x4187f0",
+                "name": "signal"
+              },
+              {
+                "address": "0x4187f8",
+                "name": "srand"
+              },
+              {
+                "address": "0x418800",
+                "name": "strerror"
+              },
+              {
+                "address": "0x418808",
+                "name": "strlen"
+              },
+              {
+                "address": "0x418810",
+                "name": "strncat"
+              },
+              {
+                "address": "0x418818",
+                "name": "strncmp"
+              },
+              {
+                "address": "0x418820",
+                "name": "strncpy"
+              },
+              {
+                "address": "0x418828",
+                "name": "strstr"
+              },
+              {
+                "address": "0x418830",
+                "name": "toupper"
+              },
+              {
+                "address": "0x418838",
+                "name": "vfprintf"
+              },
+              {
+                "address": "0x418840",
+                "name": "wcslen"
+              },
+              {
+                "address": "0x418848",
+                "name": "wcsstr"
+              }
+            ]
+          },
+          "ole32": {
+            "dll": "ole32.dll",
+            "imports": [
+              {
+                "address": "0x418858",
+                "name": "CoCreateInstance"
+              },
+              {
+                "address": "0x418860",
+                "name": "CoInitializeEx"
+              },
+              {
+                "address": "0x418868",
+                "name": "CoInitializeSecurity"
+              },
+              {
+                "address": "0x418870",
+                "name": "CoUninitialize"
+              }
+            ]
+          },
+          "OLEAUT32": {
+            "dll": "OLEAUT32.dll",
+            "imports": [
+              {
+                "address": "0x418880",
+                "name": "SysAllocString"
+              },
+              {
+                "address": "0x418888",
+                "name": "SysFreeString"
+              }
+            ]
+          },
+          "USER32": {
+            "dll": "USER32.dll",
+            "imports": [
+              {
+                "address": "0x418898",
+                "name": "CallNextHookEx"
+              },
+              {
+                "address": "0x4188a0",
+                "name": "CreateWindowExW"
+              },
+              {
+                "address": "0x4188a8",
+                "name": "DefWindowProcW"
+              },
+              {
+                "address": "0x4188b0",
+                "name": "DestroyWindow"
+              },
+              {
+                "address": "0x4188b8",
+                "name": "DispatchMessageA"
+              },
+              {
+                "address": "0x4188c0",
+                "name": "FindWindowA"
+              },
+              {
+                "address": "0x4188c8",
+                "name": "GetClientRect"
+              },
+              {
+                "address": "0x4188d0",
+                "name": "GetCursorPos"
+              },
+              {
+                "address": "0x4188d8",
+                "name": "GetDoubleClickTime"
+              },
+              {
+                "address": "0x4188e0",
+                "name": "GetMessageA"
+              },
+              {
+                "address": "0x4188e8",
+                "name": "GetSysColorBrush"
+              },
+              {
+                "address": "0x4188f0",
+                "name": "GetSystemMetrics"
+              },
+              {
+                "address": "0x4188f8",
+                "name": "GetWindowRect"
+              },
+              {
+                "address": "0x418900",
+                "name": "KillTimer"
+              },
+              {
+                "address": "0x418908",
+                "name": "LoadCursorA"
+              },
+              {
+                "address": "0x418910",
+                "name": "MessageBeep"
+              },
+              {
+                "address": "0x418918",
+                "name": "PostMessageA"
+              },
+              {
+                "address": "0x418920",
+                "name": "PostQuitMessage"
+              },
+              {
+                "address": "0x418928",
+                "name": "RegisterClassW"
+              },
+              {
+                "address": "0x418930",
+                "name": "SetTimer"
+              },
+              {
+                "address": "0x418938",
+                "name": "SetWindowsHookExA"
+              },
+              {
+                "address": "0x418940",
+                "name": "ShowWindow"
+              },
+              {
+                "address": "0x418948",
+                "name": "TranslateMessage"
+              },
+              {
+                "address": "0x418950",
+                "name": "UnhookWindowsHookEx"
+              }
+            ]
+          },
+          "WS2_32": {
+            "dll": "WS2_32.dll",
+            "imports": [
+              {
+                "address": "0x418960",
+                "name": "freeaddrinfo"
+              },
+              {
+                "address": "0x418968",
+                "name": "getaddrinfo"
+              }
+            ]
+          }
+        },
+        "exported_dll_name": null,
+        "exports": [],
+        "dirents": [
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_EXPORT",
+            "virtual_address": "0x00000000",
+            "size": "0x00000000"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_IMPORT",
+            "virtual_address": "0x00018000",
+            "size": "0x00001414"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_RESOURCE",
+            "virtual_address": "0x0001c000",
+            "size": "0x00008ef0"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_EXCEPTION",
+            "virtual_address": "0x00014000",
+            "size": "0x000009b4"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_SECURITY",
+            "virtual_address": "0x00000000",
+            "size": "0x00000000"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_BASERELOC",
+            "virtual_address": "0x00000000",
+            "size": "0x00000000"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_DEBUG",
+            "virtual_address": "0x00000000",
+            "size": "0x00000000"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_COPYRIGHT",
+            "virtual_address": "0x00000000",
+            "size": "0x00000000"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_GLOBALPTR",
+            "virtual_address": "0x00000000",
+            "size": "0x00000000"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_TLS",
+            "virtual_address": "0x00010b60",
+            "size": "0x00000028"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG",
+            "virtual_address": "0x00000000",
+            "size": "0x00000000"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT",
+            "virtual_address": "0x00000000",
+            "size": "0x00000000"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_IAT",
+            "virtual_address": "0x00018520",
+            "size": "0x00000458"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_DELAY_IMPORT",
+            "virtual_address": "0x00000000",
+            "size": "0x00000000"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR",
+            "virtual_address": "0x00000000",
+            "size": "0x00000000"
+          },
+          {
+            "name": "IMAGE_DIRECTORY_ENTRY_RESERVED",
+            "virtual_address": "0x00000000",
+            "size": "0x00000000"
+          }
+        ],
+        "sections": [
+          {
+            "name": ".text",
+            "raw_address": "0x00000400",
+            "virtual_address": "0x00001000",
+            "virtual_size": "0x0000b508",
+            "size_of_data": "0x0000b600",
+            "characteristics": "IMAGE_SCN_CNT_CODE|IMAGE_SCN_CNT_INITIALIZED_DATA|IMAGE_SCN_MEM_EXECUTE|IMAGE_SCN_MEM_READ|IMAGE_SCN_ALIGN_16BYTES",
+            "characteristics_raw": "0x60500060",
+            "entropy": "6.14"
+          },
+          {
+            "name": ".data",
+            "raw_address": "0x0000ba00",
+            "virtual_address": "0x0000d000",
+            "virtual_size": "0x00000100",
+            "size_of_data": "0x00000200",
+            "characteristics": "IMAGE_SCN_CNT_INITIALIZED_DATA|IMAGE_SCN_MEM_READ|IMAGE_SCN_MEM_WRITE|IMAGE_SCN_ALIGN_16BYTES",
+            "characteristics_raw": "0xc0500040",
+            "entropy": "0.87"
+          },
+          {
+            "name": ".rdata",
+            "raw_address": "0x0000bc00",
+            "virtual_address": "0x0000e000",
+            "virtual_size": "0x00005e10",
+            "size_of_data": "0x00006000",
+            "characteristics": "IMAGE_SCN_CNT_INITIALIZED_DATA|IMAGE_SCN_MEM_READ|IMAGE_SCN_ALIGN_32BYTES",
+            "characteristics_raw": "0x40600040",
+            "entropy": "6.24"
+          },
+          {
+            "name": ".pdata",
+            "raw_address": "0x00011c00",
+            "virtual_address": "0x00014000",
+            "virtual_size": "0x000009b4",
+            "size_of_data": "0x00000a00",
+            "characteristics": "IMAGE_SCN_CNT_INITIALIZED_DATA|IMAGE_SCN_MEM_READ|IMAGE_SCN_ALIGN_4BYTES",
+            "characteristics_raw": "0x40300040",
+            "entropy": "4.77"
+          },
+          {
+            "name": ".xdata",
+            "raw_address": "0x00012600",
+            "virtual_address": "0x00015000",
+            "virtual_size": "0x00000974",
+            "size_of_data": "0x00000a00",
+            "characteristics": "IMAGE_SCN_CNT_INITIALIZED_DATA|IMAGE_SCN_MEM_READ|IMAGE_SCN_ALIGN_4BYTES",
+            "characteristics_raw": "0x40300040",
+            "entropy": "4.10"
+          },
+          {
+            "name": ".bss",
+            "raw_address": "0x00000000",
+            "virtual_address": "0x00016000",
+            "virtual_size": "0x000013c0",
+            "size_of_data": "0x00000000",
+            "characteristics": "IMAGE_SCN_CNT_UNINITIALIZED_DATA|IMAGE_SCN_MEM_READ|IMAGE_SCN_MEM_WRITE|IMAGE_SCN_ALIGN_32BYTES",
+            "characteristics_raw": "0xc0600080",
+            "entropy": "0.00"
+          },
+          {
+            "name": ".idata",
+            "raw_address": "0x00013000",
+            "virtual_address": "0x00018000",
+            "virtual_size": "0x00001414",
+            "size_of_data": "0x00001600",
+            "characteristics": "IMAGE_SCN_CNT_INITIALIZED_DATA|IMAGE_SCN_MEM_READ|IMAGE_SCN_MEM_WRITE|IMAGE_SCN_ALIGN_4BYTES",
+            "characteristics_raw": "0xc0300040",
+            "entropy": "4.29"
+          },
+          {
+            "name": ".CRT",
+            "raw_address": "0x00014600",
+            "virtual_address": "0x0001a000",
+            "virtual_size": "0x00000068",
+            "size_of_data": "0x00000200",
+            "characteristics": "IMAGE_SCN_CNT_INITIALIZED_DATA|IMAGE_SCN_MEM_READ|IMAGE_SCN_MEM_WRITE|IMAGE_SCN_ALIGN_8BYTES",
+            "characteristics_raw": "0xc0400040",
+            "entropy": "0.25"
+          },
+          {
+            "name": ".tls",
+            "raw_address": "0x00014800",
+            "virtual_address": "0x0001b000",
+            "virtual_size": "0x00000010",
+            "size_of_data": "0x00000200",
+            "characteristics": "IMAGE_SCN_CNT_INITIALIZED_DATA|IMAGE_SCN_MEM_READ|IMAGE_SCN_MEM_WRITE|IMAGE_SCN_ALIGN_8BYTES",
+            "characteristics_raw": "0xc0400040",
+            "entropy": "0.00"
+          },
+          {
+            "name": ".rsrc",
+            "raw_address": "0x00014a00",
+            "virtual_address": "0x0001c000",
+            "virtual_size": "0x00008ef0",
+            "size_of_data": "0x00009000",
+            "characteristics": "IMAGE_SCN_CNT_INITIALIZED_DATA|IMAGE_SCN_MEM_READ|IMAGE_SCN_MEM_WRITE|IMAGE_SCN_ALIGN_4BYTES",
+            "characteristics_raw": "0xc0300040",
+            "entropy": "7.85"
+          }
+        ],
+        "overlay": null,
+        "resources": [
+          {
+            "name": "RT_ICON",
+            "offset": "0x0001c1e0",
+            "size": "0x00005a6c",
+            "filetype": null,
+            "language": "LANG_ENGLISH",
+            "sublanguage": "SUBLANG_ENGLISH_US",
+            "entropy": "7.92"
+          },
+          {
+            "name": "RT_ICON",
+            "offset": "0x00021c50",
+            "size": "0x00001e12",
+            "filetype": null,
+            "language": "LANG_ENGLISH",
+            "sublanguage": "SUBLANG_ENGLISH_US",
+            "entropy": "7.93"
+          },
+          {
+            "name": "RT_ICON",
+            "offset": "0x00023a68",
+            "size": "0x0000079e",
+            "filetype": null,
+            "language": "LANG_ENGLISH",
+            "sublanguage": "SUBLANG_ENGLISH_US",
+            "entropy": "7.85"
+          },
+          {
+            "name": "RT_ICON",
+            "offset": "0x00024208",
+            "size": "0x000004ac",
+            "filetype": null,
+            "language": "LANG_ENGLISH",
+            "sublanguage": "SUBLANG_ENGLISH_US",
+            "entropy": "7.79"
+          },
+          {
+            "name": "RT_ICON",
+            "offset": "0x000246b8",
+            "size": "0x00000354",
+            "filetype": null,
+            "language": "LANG_ENGLISH",
+            "sublanguage": "SUBLANG_ENGLISH_US",
+            "entropy": "7.69"
+          },
+          {
+            "name": "RT_ICON",
+            "offset": "0x00024a10",
+            "size": "0x000001f1",
+            "filetype": null,
+            "language": "LANG_ENGLISH",
+            "sublanguage": "SUBLANG_ENGLISH_US",
+            "entropy": "7.42"
+          },
+          {
+            "name": "RT_GROUP_ICON",
+            "offset": "0x00024c08",
+            "size": "0x0000005a",
+            "filetype": null,
+            "language": "LANG_ENGLISH",
+            "sublanguage": "SUBLANG_ENGLISH_US",
+            "entropy": "2.99"
+          },
+          {
+            "name": "RT_VERSION",
+            "offset": "0x00024c68",
+            "size": "0x00000288",
+            "filetype": null,
+            "language": "LANG_ENGLISH",
+            "sublanguage": "SUBLANG_ENGLISH_US",
+            "entropy": "3.10"
+          }
+        ],
+        "versioninfo": [
+          {
+            "name": "CompanyName",
+            "value": ""
+          },
+          {
+            "name": "FileVersion",
+            "value": ""
+          },
+          {
+            "name": "FileDescription",
+            "value": "Paranoid Fish is paranoid"
+          },
+          {
+            "name": "InternalName",
+            "value": ""
+          },
+          {
+            "name": "LegalCopyright",
+            "value": ""
+          },
+          {
+            "name": "LegalTrademarks",
+            "value": ""
+          },
+          {
+            "name": "OriginalFilename",
+            "value": ""
+          },
+          {
+            "name": "ProductName",
+            "value": "Paranoid Fish"
+          },
+          {
+            "name": "ProductVersion",
+            "value": ""
+          },
+          {
+            "name": "Translation",
+            "value": "0x0409 0x04e4"
+          }
+        ],
+        "imphash": "6b8cf599a34a9fd7f0f7abd7b1490e9c",
+        "timestamp": "2021-11-09 16:42:27",
+        "actual_checksum": "0x0001ffea",
+        "icon": "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",
+        "icon_hash": "66ca2c511eec61a6998ce35c0ffc6e7f",
+        "icon_fuzzy": "b7d6aa08bca775a10218eef9e5325e51",
+        "icon_dhash": "981cb6fcdc9fdfcf",
+        "imported_dll_count": 9
+      },
+      "data": null,
+      "strings": [
+        "HARDWARE\\ACPI\\DSDT\\VBOX__",
+        "Checking cpuid hypervisor vendor for known VM vendors",
+        "VirtualBox traced using Reg key HKLM\\HARDWARE\\ACPI\\FADT\\VBOX__",
+        "\\\\.\\VBoxMiniRdrDN",
+        "gfffA",
+        "SOFTWARE\\Oracle\\VirtualBox Guest Additions",
+        "\\\\.\\pipe\\VBoxMiniRdDN",
+        "VirtualBox traced using device %s",
+        "RegCloseKey",
+        "abort",
+        "DefWindowProcW",
+        "GetConsoleScreenBufferInfo",
+        "hi_sandbox_mouse_presence",
+        "sySumI",
+        "VMWare traced using device %s",
+        "vfprintf",
+        "SetConsoleTextAttribute",
+        "_initterm",
+        "VMware serial number traced using WMI",
+        "Sandboxie traced using GetModuleHandle(sbiedll.dll)",
+        "vboxtray.exe",
+        "_errno",
+        "GetDoubleClickTime",
+        "RTT window",
+        "d%`Uh",
+        "strncmp",
+        "HcP<H",
+        "[-] %s",
+        "\\S~D/",
+        "Sandbox traced by missing mouse movement",
+        "VirtualBox traced using driver file %s",
+        "hi_CPU_VM_rdtsc_force_vm_exit",
+        "D})ae",
+        ".5Z+\"",
+        "hi_vmware",
+        "@[^_A\\A]",
+        "l$.H9",
+        "Wow64DisableWow64FsRedirection",
+        "0[^_]A\\A]A^",
+        "CPU VM traced by checking the difference between CPU timestamp counters (rdtsc)",
+        "Looking for VBoxTray windows",
+        "C:\\WINDOWS\\system32\\vboxoglarrayspu.dll",
+        "__lconv_init",
+        "nmjN]~",
+        "IsNativeVhdBoot",
+        "PCI\\VEN_80EE&DEV_CAFE",
+        "Overflow range error (OVERFLOW)",
+        "RegisterClassW",
+        "VirtualBox device identifiers traced using WMI",
+        "    Hypervisor: %s",
+        "GCC: (GNU) 10-win32 20210110",
+        "GetFileAttributesA",
+        "+T$tE1",
+        "SYSTEM\\ControlSet001\\Services\\VBoxSF",
+        "  VirtualProtect failed with code 0x%x",
+        "KillTimer",
+        "hi_sandbox_NumberOfProcessors_less_2_PEB",
+        "C:\\WINDOWS\\system32\\vboxmrxnp.dll",
+        "VirtualBox traced using system file %s",
+        "Sandbox traced by missing dialog confirmation",
+        "___mb_cur_max_func",
+        "sIDATX",
+        "analysis-start",
+        "Sandbox traced by checking disk size <= 60GB via DeviceIoControl()",
+        "\\\\.\\PhysicalDrive0",
+        "__iob_func",
+        "FileDescription",
+        "IcP<L",
+        "LocalAlloc",
+        "Bochs detection",
+        "Process32Next",
+        "[^_A\\]",
+        "GetCurrentProcess",
+        "^RzDd!",
+        "^8@7_",
+        "hi_sandbox_username",
+        "Sandbox traced by checking if NumberOfProcessors is less than 2 via GetSystemInfo()",
+        "Reg key (HKLM\\SOFTWARE\\Oracle\\VirtualBox Guest Additions)",
+        "([^_]A\\A]A^A_",
+        "Scsi port 0,1,2 ->bus->target id->logical unit id-> 0 identifier",
+        "DeviceIoControl",
+        "\"h.uR",
+        "strncpy",
+        "GetWindowRect",
+        "@Qm6t",
+        "GetClientRect",
+        ">P%B:",
+        "Checking if NumberOfProcessors is < 2 via PEB access",
+        "_onexit",
+        "[^_]A\\A]A^A_",
+        "C:\\WINDOWS\\system32\\vboxservice.exe",
+        "ATUWVSH",
+        "fputs",
+        "HARDWARE\\ACPI\\FADT\\VBOX__",
+        "hi_sandbox_rtt_confirm_dialog",
+        "fopen",
+        "P[^A\\",
+        "Checking username",
+        "QEMU Virtual CPU",
+        "cp(e|:",
+        "WideCharToMultiByte",
+        "Looking for VBox devices using WMI",
+        "SysFreeString",
+        "PostMessageA",
+        "8m0:s",
+        "hi_CPU_VM_hypervisor_bit",
+        "WS2_32.dll",
+        "{,u$h",
+        "SystemBiosDate",
+        "Checking operating system uptime using GetTickCount()",
+        "Driver files in C:\\WINDOWS\\system32\\drivers\\VBox*",
+        "VirtualBox detection",
+        "Looking for pseudo devices",
+        "CoInitializeSecurity",
+        "HARDWARE\\DEVICEMAP\\Scsi\\Scsi Port 1\\Scsi Bus 0\\Target Id 0\\Logical Unit Id 0",
+        "VMwareVMware",
+        "Partial loss of significance (PLOSS)",
+        "|vJO$",
+        "C:\\program files\\oracle\\virtualbox guest additions\\",
+        "Looking for VMware serial number",
+        "hi_debugger_beingdebugged_PEB",
+        "calloc",
+        "(p`3x",
+        "3]X+'/",
+        "<2ZGU",
+        "Debugger traced using PEB BeingDebugged",
+        "Checking the difference between CPU timestamp counters (rdtsc) forcing VM exit",
+        "hi_debugger_outputdebugstring",
+        "              Intel(R) Pentium(R) 4 CPU        ",
+        "Checking the difference between CPU timestamp counters (rdtsc)",
+        "gx|OP",
+        "False",
+        "KERNEL32.dll",
+        "HARDWARE\\DESCRIPTION\\System",
+        "strncat",
+        "Sandbox traced by missing mouse click activity",
+        "ATUWVSHcY",
+        "hi_sandbox_rtt_mouse_speed_limit",
+        "Process32First",
+        "T$pE1",
+        "BOCHS",
+        "CPU information based detections",
+        "hi_sandbox_NumberOfProcessors_less_2_GetSystemInfo",
+        "MALWARE",
+        "Wine detection",
+        "    https://github.com/a0rtega/pafish",
+        "C:\\WINDOWS\\system32\\drivers\\vmmouse.sys",
+        "HARDWARE\\DEVICEMAP\\Scsi\\Scsi Port 0\\Scsi Bus 0\\Target Id 0\\Logical Unit Id 0",
+        "The result is too small to be represented (UNDERFLOW)",
+        "__C_specific_handler",
+        ".rdata",
+        "Identifier",
+        "wcsstr",
+        "GetModuleFileNameA",
+        "HcA<I",
+        "`(,?QZ",
+        "LcB<I",
+        "Reg key (HKLM\\SOFTWARE\\VMware, Inc.\\VMware Tools)",
+        "sFV?:",
+        "srand",
+        "Checking mouse double click activity",
+        "XenVMMXenVMM",
+        "@_s#s",
+        "Looking for C:\\WINDOWS\\system32\\drivers\\vmhgfs.sys",
+        "GetProcAddress",
+        "Debugger traced using IsDebuggerPresent()",
+        "HARDWARE\\DEVICEMAP\\Scsi\\Scsi Port 2\\Scsi Bus 0\\Target Id 0\\Logical Unit Id 0",
+        "C:\\WINDOWS\\system32\\vboxoglerrorspu.dll",
+        "Looking for VBox processes (vboxservice.exe, vboxtray.exe)",
+        "VMware traced using network adapter name",
+        "Bochs traced using Reg key HKLM\\HARDWARE\\Description\\System \"SystemBiosVersion\"",
+        "Looking for network adapter name",
+        "C:\\WINDOWS\\system32\\vboxoglfeedbackspu.dll",
+        "L.gKb",
+        "  Unknown pseudo relocation bit size %d.",
+        "Using OutputDebugString()",
+        "Infinity",
+        "0`h>?",
+        "qAt/n-",
+        "mbstowcs",
+        "VirtualBox traced using Reg key HKLM\\HARDWARE\\Description\\System \"SystemBiosVersion\"",
+        "SystemBiosVersion",
+        "GetModuleHandleA",
+        "Checking if disk size <= 60GB via DeviceIoControl()",
+        "hi_sandbox_path",
+        "VBoxTrayToolWndClass",
+        "GetUserNameA",
+        "06/23/99",
+        "T$tD)",
+        "Bochs traced using CPU Intel wrong value for processor name",
+        "___lc_codepage_func",
+        "\"B$Bj",
+        "@b9F~",
+        "C:\\WINDOWS\\system32\\vboxdisp.dll",
+        "sYE2{",
+        "VirtualBox traced using Reg key HKLM\\HARDWARE\\ACPI\\RSDT\\VBOX__",
+        "C:\\WINDOWS\\system32\\vboxoglpassthroughspu.dll",
+        "Looking for VBox network share",
+        "VIRTUALBOX",
+        "l$`+l$L",
+        "Reg key (HKLM\\HARDWARE\\Description\\System \"VideoBiosVersion\")",
+        "Sleep",
+        "SetWindowsHookExA",
+        "VirtualBox traced using Reg key HKLM\\HARDWARE\\DESCRIPTION\\System \"SystemBiosDate\"",
+        "o@A Y",
+        "VBoxVBoxVBox",
+        "Pafish RTT window",
+        "?aCoc",
+        "\\\\.\\HGFS",
+        "GetConsoleWindow",
+        "$wA:P",
+        "toupper",
+        "\\\\.\\VBoxTrayIPC",
+        "VMware traced using MAC address starting with 00:05:69, 00:0C:29, 00:1C:14 or 00:50:56",
+        "_matherr(): %s in %s(%g, %g)  (retval=%g)",
+        "hi_sandbox_drive_size",
+        "hi_sandbox_sleep_gettickcount",
+        "-qZ~C",
+        "ADVAPI32.dll",
+        "G`WcI=",
+        "TranslateMessage",
+        "yn<^272S",
+        "l$ M)",
+        "VMware traced using file C:\\WINDOWS\\system32\\drivers\\vmhgfs.sys",
+        "Qemu traced using CPU brand string 'QEMU Virtual CPU'",
+        "Checking if NumberOfProcessors is < 2 via GetSystemInfo()",
+        "Debuggers detection",
+        "Checking mouse speed",
+        "VirtualQuery",
+        "VS_VERSION_INFO",
+        "fclose",
+        "CoInitializeEx",
+        "__set_app_type",
+        "[*] %s ... ",
+        "GetTickCount",
+        "'R,4B:",
+        ")D$`)",
+        "WDdaT",
+        ".text",
+        "?^Gi[E",
+        "  VirtualQuery failed for %d bytes at address %p",
+        "strerror",
+        "D$,-H",
+        "D$,+H",
+        "getchar",
+        "CPU VM traced by checking cpuid hypervisor vendor for known VM vendors",
+        "ab|,t",
+        "3!XI-X",
+        "Sandbox traced by absence of mouse device",
+        "w05v4;",
+        "VirtualBox traced using VBoxTray windows",
+        "%lu.%lu build %lu",
+        "vboxservice.exe",
+        "UnhookWindowsHookEx",
+        "L{lW&",
+        "Reg key (HKCU\\SOFTWARE\\Wine)",
+        "P_J 5",
+        "hi_bochs",
+        "Sandboxie detection",
+        "Zz;7rv",
+        "VirtualProtect",
+        "[^_A\\A]A^A_]",
+        "GetSystemInfo",
+        "J`%u[",
+        "[pafish] %s",
+        "strstr",
+        "CreateToolhelp32Snapshot",
+        "Checking mouse presence",
+        "Checking common sample names in drives root",
+        "[-] Pafish has finished analyzing the system, check the log file for more information",
+        "OriginalFilename",
+        "Looking for a MAC address starting with 00:05:69, 00:0C:29, 00:1C:14 or 00:50:56",
+        "memset",
+        "MPR.dll",
+        "9@^0=",
+        "hi_sandbox_pysicalmemory_less_1Gb",
+        "ShowWindow",
+        "E>`b|,",
+        "Unknown error",
+        "7>b;u",
+        "r#KmC",
+        "7N4Z;",
+        "<5IkQ",
+        "Total loss of significance (TLOSS)",
+        "PxBo9",
+        "malloc",
+        "ZbeJK_",
+        "xa2W DO",
+        "analysis-end",
+        "cAMDu",
+        "phsvt",
+        "oD$PH",
+        "GlobalMemoryStatusEx",
+        "localeconv",
+        "Using GetModuleHandle(sbiedll.dll)",
+        "Start",
+        "pafish.log",
+        "C:\\WINDOWS\\system32\\drivers\\VBoxSF.sys",
+        "/ffclFae&",
+        "Mingw-w64 runtime failure:",
+        "    CPU brand: %s",
+        "%smalware.exe",
+        "McC<M",
+        "o*i].",
+        "VMware detection",
+        "AMD Athlon(tm) processor",
+        "q\"w.h",
+        "Reg key (HKLM\\HARDWARE\\ACPI\\FADT\\VBOX__)",
+        "GetSystemTimeAsFileTime",
+        "Wine traced using Reg key HKCU\\SOFTWARE\\Wine",
+        "GetCursorPos",
+        "LeaveCriticalSection",
+        "WNetGetProviderNameA",
+        "gYKo-",
+        "@[^_]A\\A]A^",
+        " u HcC$A",
+        "Z.y#g",
+        "VirtualBox traced using its network share",
+        "C:\\WINDOWS\\system32\\drivers\\VBoxVideo.sys",
+        "GetDiskFreeSpaceExA",
+        "USER32.dll",
+        "R/@Y%",
+        "Checking if Sleep() is patched using GetTickCount()",
+        "VideoBiosVersion",
+        "hi_sandbox_rtt_mouse_movement",
+        "S&wv+b+",
+        "R:~=]",
+        "T$|E1",
+        "Checking mouse click activity",
+        "LegalTrademarks",
+        "t$>E1",
+        "Debugger traced using OutputDebugString()",
+        "VIRUS",
+        "1\"EYg-",
+        "xT U9-^",
+        "y4/;v",
+        "C:\\WINDOWS\\system32\\vboxhook.dll",
+        "VirtualBox traced using vboxservice.exe process",
+        "hi_CPU_VM_hv_vendor_name",
+        "Scsi port->bus->target id->logical unit id-> 0 identifier",
+        "D$8Mc",
+        "\\\\.\\vmci",
+        "0@.bss",
+        "GetDriveTypeA",
+        "040904E4",
+        "Bochs traced using CPU AMD wrong value for processor name",
+        "\\$Hu5",
+        "C:\\WINDOWS\\system32\\vboxtray.exe",
+        " [^A\\",
+        "InitializeCriticalSection",
+        "SYSTEM\\ControlSet001\\Services\\VBoxService",
+        "ProductName",
+        "CompanyName",
+        "sbiedll.dll",
+        "Translation",
+        "Button",
+        "K$ZQH",
+        "`@.pdata",
+        "IsWow64Process",
+        "T$xA!",
+        "\\\\.\\pipe\\VBoxTrayIPC",
+        "prl hyperv  ",
+        "*>=VV",
+        "UAWAVAUATWVSH",
+        "l$`E1",
+        "Paranoid Fish",
+        "\\|\"U'",
+        "HARDWARE\\ACPI\\RSDT\\VBOX__",
+        "L$x@H",
+        "C:\\WINDOWS\\system32\\drivers\\VBoxGuest.sys",
+        "GCC: (GNU) 10-win32 20200525",
+        "Sandbox traced by checking if pysical memory is less than 1Gb",
+        "s)%0;7",
+        "_acmdln",
+        "hkibXy7",
+        "AVAUATUWVSH",
+        "CreateWindowExW",
+        "z|lWw",
+        "Qemu traced using Reg key HKLM\\HARDWARE\\Description\\System \"SystemBiosVersion\"",
+        "CoUninitialize",
+        "hi_sandbox_drive_size2",
+        "VMWARE",
+        "CPU VM traced by checking the difference between CPU timestamp counters (rdtsc) forcing VM exit",
+        "OLEAUT32.dll",
+        "SYSTEM\\ControlSet001\\Services\\VBoxGuest",
+        "\\$XE1",
+        "    and visit the project's site:",
+        "P`.data",
+        "IsDebuggerPresent",
+        "Checking if pysical memory is < 1Gb",
+        "__setusermatherr",
+        "+K)z%",
+        "Generic reverse turing tests",
+        "C:\\WINDOWS\\system32\\vboxoglcrutil.dll",
+        "SANDBOX",
+        "Sandbox traced by checking username",
+        "VMWare traced using Reg key HKLM\\HARDWARE\\DEVICEMAP\\Scsi\\Scsi Port 0,1,2\\Scsi Bus 0\\Target Id 0\\Logical Unit Id 0 \"Identifier\"",
+        "pnJ-s",
+        "Sandbox traced by missing mouse movement or supernatural speed",
+        "hAn`5u",
+        "OutputDebugStringA",
+        "B6sr[",
+        "KVMKVMKVM",
+        " [A\\A]",
+        "signal",
+        "R^A)o/",
+        "GetVersionExA",
+        "CloseHandle",
+        "#k$t~",
+        "GetLastError",
+        "lstrcmpiA",
+        "Checking if disk size <= 60GB via GetDiskFreeSpaceExA()",
+        "DispatchMessageA",
+        "Wow64RevertWow64FsRedirection",
+        "SOFTWARE\\VMware, Inc.\\VMware Tools",
+        "SELECT SerialNumber FROM Win32_Bios",
+        "Checking plausible dialog confirmation",
+        "0&(^:",
+        " [^_]A\\",
+        "hi_sandbox_rtt_mouse_double_click",
+        "ta3zT",
+        "  Unknown pseudo relocation protocol version %d.",
+        "D$Tt(",
+        "VirtualBox traced using vboxtray.exe process",
+        "IsDBCSLeadByteEx",
+        "VirtualBox traced using Reg key HKLM\\SOFTWARE\\Oracle\\VirtualBox Guest Additions",
+        "_unlock",
+        "C:\\WINDOWS\\system32\\drivers\\VBoxMouse.sys",
+        "TlsGetValue",
+        "Using IsDebuggerPresent()",
+        "__getmainargs",
+        "hi_sandbox_IsNativeVhdBoot",
+        "C:\\WINDOWS\\system32\\drivers\\vmhgfs.sys",
+        "H[^_A\\",
+        "%c%c%c%c",
+        "FindWindowA",
+        "([^A\\A]",
+        "_lock",
+        "GetSysColorBrush",
+        "Generic sandbox detection",
+        "cpuid Intel wrong value for processor name",
+        ")<eS%",
+        "VarFileInfo",
+        "fprintf",
+        "Reg key (HKLM\\HARDWARE\\DESCRIPTION\\System \"SystemBiosDate\")",
+        "IcD$$A",
+        "Argument domain error (DOMAIN)",
+        "SYSTEM\\ControlSet001\\Services\\VBoxVideo",
+        "GetStdHandle",
+        "([^_]",
+        "_cexit",
+        "kernel32",
+        "~ct1[",
+        "RegQueryValueExA",
+        "N0\"=]",
+        "Using GetProcAddress(wine_get_unix_file_name) from kernel32.dll",
+        "VirtualBox traced using Reg key HKLM\\HARDWARE\\ACPI\\DSDT\\VBOX__",
+        "VMware traced using file C:\\WINDOWS\\system32\\drivers\\vmmouse.sys",
+        ",\\]<y",
+        "}o}W+",
+        "Looking for C:\\WINDOWS\\system32\\drivers\\vmmouse.sys",
+        " [^_]A\\A]A^",
+        "D$0.H",
+        "VirtualBox traced using MAC address starting with 08:00:27",
+        "_Fct1",
+        "cpuid CPU brand string 'QEMU Virtual CPU'",
+        "Reg key (HKLM\\SYSTEM\\ControlSet001\\Services\\VBox*)",
+        "2W=o+",
+        "CallNextHookEx",
+        "t!P ]",
+        "Sandbox traced by checking disk size <= 60GB via GetDiskFreeSpaceExA()",
+        "Checking if operating system IsNativeVhdBoot()",
+        "D$pE1",
+        "VMware",
+        "<w~<O*f",
+        "UWVSH",
+        "memcmp",
+        "Windows version: %s",
+        "E>Q(R",
+        "Additional system files",
+        "HcC$A",
+        "Checking mouse movement",
+        "fwrite",
+        "IDAT8",
+        "qAZf4[",
+        "RegOpenKeyExA",
+        "VMware traced using Reg key HKLM\\SOFTWARE\\VMware, Inc.\\VMware Tools",
+        "D$$H9",
+        "!This program cannot be run in DOS mode.",
+        "0@.xdata",
+        "Sandbox traced by checking operating system uptime using GetTickCount()",
+        "Reg key (HKLM\\HARDWARE\\ACPI\\DSDT\\VBOX__)",
+        "_commode",
+        "(rdz?",
+        "hi_sandbox_common_names",
+        "Argument singularity (SIGN)",
+        "Sandbox traced by checking if Sleep() was patched using GetTickCount()",
+        "fputc",
+        "S$9S(~",
+        "Checking dialog confirmation",
+        "SU|Ur",
+        "[-] Windows version: %s",
+        "Sandbox traced by missing or implausible dialog confirmation",
+        "AWAVAUATUWVSH",
+        "8[^_]A\\A]A^A_",
+        "*J`,WF",
+        "InternalName",
+        "VirtualBox traced using Reg key HKLM\\HARDWARE\\DEVICEMAP\\Scsi\\Scsi Port 0\\Scsi Bus 0\\Target Id 0\\Logical Unit Id 0 \"Identifier\"",
+        "[^_]A\\",
+        "ATSHcA",
+        "Checking hypervisor bit in cpuid feature bits",
+        "Sandbox traced by checking IsNativeVhdBoot()",
+        "D$Lf.",
+        "C$9C(~",
+        "HcQ<H",
+        "[kgkc",
+        "X[^_]A\\A]",
+        "useless",
+        "(null)",
+        "getaddrinfo",
+        "Sandbox traced by missing double click activity",
+        "VirtualBox traced using Reg key HKLM\\%s",
+        "LoadCursorA",
+        "kernel32.dll",
+        "GetSystemMetrics",
+        "Sandbox traced by checking common sample names in drives root",
+        "Xwyyd1S",
+        "Reg key (HKLM\\HARDWARE\\Description\\System \"SystemBiosVersion\")",
+        "hi_virtualbox",
+        "msvcrt.dll",
+        "!Eh,*d",
+        "AUATSH",
+        "StringFileInfo",
+        "_fmode",
+        " &0V/(z",
+        ".pafish",
+        "@/R,E",
+        "hi_sandbox_uptime",
+        "D$p9G",
+        "D$$A9D$(~",
+        "PostQuitMessage",
+        "C:\\WINDOWS\\system32\\vboxogl.dll",
+        "\\VIRUS",
+        "%ssample.exe",
+        "wRAX~",
+        "ATWVSH",
+        ".<j-?",
+        "ProductVersion",
+        "RgkV!",
+        ".rsrc",
+        "LocalFree",
+        "CoCreateInstance",
+        "Qemu traced using Reg key HKLM\\HARDWARE\\DEVICEMAP\\Scsi\\Scsi Port 0\\Scsi Bus 0\\Target Id 0\\Logical Unit Id 0 \"Identifier\"",
+        "DeviceId",
+        "ATVSH",
+        "Y3@(G",
+        "CPU VM traced by checking hypervisor bit in cpuid feature bits",
+        "9h'  a",
+        "wDy}{",
+        "AUATWVSH",
+        "SOFTWARE\\Wine",
+        "Wine traced using GetProcAddress(wine_get_unix_file_name) from kernel32.dll",
+        "0[^A\\",
+        "cpuid AMD wrong value for processor name",
+        "{M=VYD",
+        "hi_sandbox_rtt_mouse_click",
+        "CreateFileA",
+        "JBG%`d",
+        "Checking file path",
+        "hi_wine",
+        "traced!",
+        "y;QG?",
+        "[^_]A\\A]",
+        "D)T$`",
+        "Y6s{D",
+        "([^_A\\H",
+        "hi_sandbox_rtt_implausible_confirm_dialog",
+        "hi_qemu",
+        "+|$PD",
+        "#3:O&",
+        "strlen",
+        "EnterCriticalSection",
+        "Microsoft Hv",
+        "wcslen",
+        "Reg key (HKLM\\HARDWARE\\ACPI\\RSDT\\VBOX__)",
+        "VirtualBox traced using Reg key HKLM\\HARDWARE\\Description\\System \"VideoBiosVersion\"",
+        "wine_get_unix_file_name",
+        "gfffH",
+        "]$C9\"D",
+        "_amsg_exit",
+        "gq*Kb9",
+        "Sandbox traced by checking file path",
+        "V mU`",
+        "SysAllocString",
+        "GetStartupInfoA",
+        "hi_CPU_VM_rdtsc",
+        "jl.47",
+        "w/nO5",
+        "DestroyWindow",
+        ">tX~ /",
+        "__initenv",
+        "ole32.dll",
+        "memcpy",
+        "* Pafish (",
+        "1=yDXG p",
+        " (nativeH",
+        "analysis-start ",
+        "H9Exr",
+        "DeleteCriticalSection",
+        "root\\cimv2",
+        "HcD$pH",
+        "[MG?+",
+        "Looking for a MAC address starting with 08:00:27",
+        "MessageBeep",
+        "C:\\WINDOWS\\system32\\VBoxControl.exe",
+        " D&3l",
+        "CPU: %s (HV: %s) %s",
+        "Sandbox traced by checking if NumberOfProcessors is less than 2 via PEB access",
+        "LegalCopyright",
+        "w1?}o",
+        "hi_sandboxie",
+        ")@Zgu",
+        "::~fC",
+        "HARDWARE\\Description\\System",
+        "eIDATh",
+        "IPHLPAPI.DLL",
+        "SELECT DeviceId FROM Win32_PnPEntity",
+        "UATWVSH",
+        ":MZuWHcB<H",
+        "Wc3c#",
+        "hi_debugger_isdebuggerpresent",
+        "SYSTEM\\ControlSet001\\Services\\VBoxMouse",
+        "FileVersion",
+        " (WoW64)H",
+        "GetLogicalDriveStringsA",
+        "SetUnhandledExceptionFilter",
+        "\\SAMPLE",
+        "sSerialNumber",
+        "SetTimer",
+        "VirtualBox Shared Folders",
+        "\\jab|,",
+        "AUATVSH",
+        "D$, H",
+        "Using BeingDebugged via PEB access",
+        "GetAdaptersAddresses",
+        "freeaddrinfo",
+        "GetMessageA",
+        "IDATH",
+        " analysis-end",
+        "Address %p has no image-section",
+        "Paranoid Fish is paranoid",
+        "IDATx",
+        "=BS{U\\",
+        "CPU: %s %s",
+        "Qemu detection",
+        "=UUUUw",
+        "`[^A\\",
+        "SetLastError",
+        ".idata",
+        " y{>D1",
+        "[-] Running in WoW64: ",
+        "VBoxTrayToolWnd",
+        "MultiByteToWideChar",
+        "at|Kn",
+        "C:\\WINDOWS\\system32\\vboxoglpackspu.dll",
+        "/NdoCT)",
+        "AUATUWVSH",
+        "0[A\\A]",
+        "[-] CPU: %s"
+      ],
+      "virustotal": {
+        "error": true,
+        "msg": "Unable to complete connection to VirusTotal. Status code: 429"
+      },
+      "executed_tools": [
+        "msi_extract",
+        "overlay",
+        "kixtart_extract",
+        "vbe_extract",
+        "batch_extract",
+        "UnAutoIt_extract",
+        "UPX_unpack",
+        "RarSFX_extract",
+        "Inno_extract",
+        "SevenZip_unpack",
+        "de4dot_deobfuscate",
+        "eziriz_deobfuscate",
+        "office_one"
+      ],
+      "cape_type_code": 0,
+      "cape_type": ""
+    }
+  },
+  "CAPE": {
+    "payloads": [],
+    "configs": []
+  },
+  "info": {
+    "version": "2.5",
+    "started": "2026-08-06 21:42:49",
+    "ended": "2026-08-06 21:43:09",
+    "duration": 20,
+    "id": 2,
+    "category": "file",
+    "custom": "",
+    "machine": {
+      "id": 1,
+      "status": "stopping",
+      "name": "cuckoo1",
+      "label": "Win10-Lab",
+      "platform": "windows",
+      "manager": "VirtualBox",
+      "started_on": "2026-08-06 21:42:49",
+      "shutdown_on": "2026-08-06 21:43:07"
+    },
+    "package": "exe",
+    "timeout": false,
+    "tlp": null,
+    "parent_sample": null,
+    "options": {},
+    "source_url": null,
+    "route": "none",
+    "user_id": 0,
+    "CAPE_current_commit": "7d5b0f1aca7ef9f8fd53618837dfecf98cd2d114"
+  },
+  "behavior": {
+    "processes": []
+  },
+  "debug": {
+    "log": "",
+    "errors": []
+  },
+  "network": {},
+  "url_analysis": {},
+  "procmemory": [],
+  "signatures": [
+    {
+      "name": "antianalysis_tls_section",
+      "description": "Contains .tls (Thread Local Storage) section",
+      "categories": [
+        "anti-analysis"
+      ],
+      "severity": 2,
+      "weight": 1,
+      "confidence": 100,
+      "references": [],
+      "data": [
+        {
+          "section": {
+            "name": ".tls",
+            "raw_address": "0x00014800",
+            "virtual_address": "0x0001b000",
+            "virtual_size": "0x00000010",
+            "size_of_data": "0x00000200",
+            "characteristics": "IMAGE_SCN_CNT_INITIALIZED_DATA|IMAGE_SCN_MEM_READ|IMAGE_SCN_MEM_WRITE|IMAGE_SCN_ALIGN_8BYTES",
+            "characteristics_raw": "0xc0400040",
+            "entropy": "0.00"
+          }
+        }
+      ],
+      "new_data": [],
+      "alert": false,
+      "families": []
+    },
+    {
+      "name": "pe_tls_callbacks",
+      "description": "The PE file contains TLS callbacks which execute before the entry point and before debugger attachment, commonly used by packers for anti-analysis or pre-EP decryption",
+      "categories": [
+        "packer",
+        "anti-debug",
+        "static"
+      ],
+      "severity": 2,
+      "weight": 1,
+      "confidence": 50,
+      "references": [],
+      "data": [
+        {
+          "tls_directory_va": "0x10b60",
+          "tls_directory_size": "0x28"
+        }
+      ],
+      "new_data": [],
+      "alert": false,
+      "families": []
+    },
+    {
+      "name": "packer_entropy",
+      "description": "The binary likely contains encrypted or compressed data",
+      "categories": [
+        "packer"
+      ],
+      "severity": 2,
+      "weight": 1,
+      "confidence": 100,
+      "references": [
+        "http://www.forensickb.com/2013/03/file-entropy-explained.html",
+        "http://virii.es/U/Using%20Entropy%20Analysis%20to%20Find%20Encrypted%20and%20Packed%20Malware.pdf"
+      ],
+      "data": [
+        {
+          "section": {
+            "name": ".rsrc",
+            "raw_address": "0x00014a00",
+            "virtual_address": "0x0001c000",
+            "virtual_size": "0x00008ef0",
+            "size_of_data": "0x00009000",
+            "characteristics": "IMAGE_SCN_CNT_INITIALIZED_DATA|IMAGE_SCN_MEM_READ|IMAGE_SCN_MEM_WRITE|IMAGE_SCN_ALIGN_4BYTES",
+            "characteristics_raw": "0xc0300040",
+            "entropy": "7.85"
+          }
+        }
+      ],
+      "new_data": [],
+      "alert": false,
+      "families": []
+    },
+    {
+      "name": "binary_yara",
+      "description": "Binary file triggered multiple YARA rules",
+      "categories": [
+        "static"
+      ],
+      "severity": 3,
+      "weight": 1,
+      "confidence": 80,
+      "references": [],
+      "data": [
+        {
+          "Binary triggered YARA rule": "INDICATOR_SUSPICIOUS_Sandbox_Evasion_VirtDrvComb"
+        },
+        {
+          "Binary triggered YARA rule": "INDICATOR_SUSPICIOUS_VM_Evasion_MACAddrComb"
+        },
+        {
+          "Binary triggered YARA rule": "vmdetect"
+        }
+      ],
+      "new_data": [],
+      "alert": false,
+      "families": []
+    }
+  ],
+  "malscore": 1.5,
+  "ttps": [
+    {
+      "signature": "antianalysis_tls_section",
+      "ttps": [
+        "T1055"
+      ],
+      "mbcs": [
+        "B0002",
+        "B0003",
+        "E1055"
+      ]
+    },
+    {
+      "signature": "pe_tls_callbacks",
+      "ttps": [
+        "T1027",
+        "T1055"
+      ],
+      "mbcs": [
+        "OB0013",
+        "B0002"
+      ]
+    },
+    {
+      "signature": "packer_entropy",
+      "ttps": [
+        "T1027.002",
+        "T1027"
+      ],
+      "mbcs": [
+        "OB0001",
+        "OB0002",
+        "OB0006",
+        "F0001"
+      ]
+    }
+  ],
+  "malstatus": "Clean"
+}
