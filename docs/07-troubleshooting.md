@@ -159,4 +159,52 @@ cd /opt/CAPEv2
 
 ---
 
+## Problema 6: El agente no responde tras reiniciar el host (`vboxnet0` en estado `DOWN`)
+
+**Síntoma:**
+El agente funcionaba correctamente en la sesión anterior, pero tras reiniciar (o simplemente apagar y volver a encender) el host Ubuntu:
+
+```
+curl http://192.168.56.101:8000
+curl: (28) Failed to connect to 192.168.56.101 port 8000 after 134048 ms: Connection timed out
+```
+
+A diferencia del Problema 4 (`Connection refused`, inmediato), aquí la conexión hace **timeout** — los paquetes no llegan a ningún sitio, no es que el agente rechace la conexión.
+
+**Causa:**
+La interfaz `vboxnet0` (red Host-Only usada por el ResultServer) se queda en estado `DOWN` a nivel de enlace tras reiniciar el host, aunque conserve la IP asignada. Es un comportamiento conocido de VirtualBox en Linux: si la VM que usa la red host-only no está corriendo en el momento en que se recrea la interfaz, esta puede quedar administrativamente caída.
+
+Compruébalo con:
+
+```
+ip addr show vboxnet0
+```
+
+Si ves `state DOWN` en la primera línea (aunque la IP `192.168.56.1/24` aparezca correctamente listada más abajo), este es el problema:
+
+```
+4: vboxnet0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 0a:00:27:00:00:00 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.56.1/24 scope global vboxnet0
+```
+
+**Solución inmediata:**
+
+```
+sudo ip link set vboxnet0 up
+```
+
+Verifica que el estado cambia a `UP` o `UNKNOWN` y repite el `curl`.
+
+**Solución permanente (recomendada):**
+Instala el servicio systemd `vboxnet0-ip.service` (ver [`scripts/setup-vboxnet0.sh`](../scripts/setup-vboxnet0.sh)) para que el host levante la interfaz y asigne la IP automáticamente en cada arranque, sin intervención manual:
+
+```
+sudo bash scripts/setup-vboxnet0.sh
+```
+
+Esto instala una unidad `oneshot` que se ejecuta en cada arranque del host y deja `vboxnet0` operativa antes de que arranques CAPE, evitando este problema de forma definitiva.
+
+---
+
 Continúa con: [08 — Análisis con PAFish →](08-analisis-pafish.md)
