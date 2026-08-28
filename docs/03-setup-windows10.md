@@ -15,7 +15,7 @@ No usamos carpetas compartidas de VirtualBox intencionalmente: un malware sofist
 mkdir ~/compartida_vm && cd ~/compartida_vm
 
 # Python 3.8 de 32 bits (más estable como agente en Windows)
-wget https://www.python.org/ftp/python/3.8.10/python-3.8.10.exe
+wget https://www.python.org/ftp/python/3.10.6/python-3.10.6.exe
 
 # Agente de CAPE (servidor HTTP ligero que escucha en el Guest)
 wget https://raw.githubusercontent.com/kevoreilly/CAPEv2/master/agent/agent.py
@@ -82,8 +82,8 @@ Deberías ver: `La operación se completó correctamente.`
 
 ## Fase 4: Instalar Python y desplegar el Agente
 
-1. Ejecuta `python-3.8.10.exe` desde el Escritorio.
-2. En la primera pantalla, **marca la casilla "Add Python 3.8 to PATH"** antes de continuar.
+1. Ejecuta `python-3.10.6.exe` desde el Escritorio.
+2. En la primera pantalla, **marca la casilla "Add Python 3.10 to PATH"** antes de continuar.
 3. Haz clic en **Install Now**.
 
 Una vez instalado:

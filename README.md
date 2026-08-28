@@ -103,20 +103,31 @@ Sigue los documentos en orden:
 
 ## 📊 Resultados del baseline (pre-hardening)
 
-El primer análisis de `pafish64.exe` sobre el entorno sin endurecer produjo estos resultados:
+El baseline real de `pafish64.exe`, ejecutado sobre el entorno sin ninguna medida de hardening aplicada (Guest Additions instaladas, sin spoofing de MAC/DMI/BIOS/disco), produjo estos resultados:
 
-| Métrica | Valor |
-|---|---|
-| Duración del análisis | **20 segundos** (terminó prematuramente) |
-| Procesos capturados | **0** |
-| Malscore | **1.5 / 10** (clasificado como "Clean") |
-| Payloads extraídos | **0** |
-| IoCs de red (C2) | **0** |
-| Actividad de red | **Ninguna** |
+| Métrica                  | Valor                              |
+| ------------------------- | ----------------------------------- |
+| Duración del análisis     | **238 segundos** (ejecución completa) |
+| Procesos capturados       | **1** (comportamiento completo)     |
+| Malscore                  | **9.0 / 10**                        |
+| Clasificación             | **Malicious**                       |
+| Firmas disparadas         | **28 de 36**                        |
 
-**Conclusión:** PAFish detectó el entorno virtualizado en los primeros segundos de ejecución y se cerró sin revelar su comportamiento. El análisis dinámico fue completamente inútil.
+**Vectores de detección anti-VM confirmados:**
 
-El reporte completo está en [`reports/baseline/2_report_pafish64_pre-hardening.json`](reports/baseline/2_report_pafish64_pre-hardening.json).
+| Vector | Evidencia | Firma CAPE |
+| --- | --- | --- |
+| VirtualBox Guest Additions | 17 archivos (`vboxdisp.dll`, `VBoxTray.exe`, `VBoxMouse.sys`, etc.) + ventana `VBoxTrayToolWndClass` activa | `antivm_vbox_files`, `antivm_vbox_window`, `antivm_vbox_provname` |
+| Consultas WMI (fabricante/modelo) | Llamada a `Win32_ComputerSystem`/`Win32_BIOS` | `antivm_wmi` |
+| Identificador de disco | Cadena `VBOX HARDDISK` vía SCSI + acceso directo al disco físico | `antivm_generic_disk`, `antivm_generic_scsi`, `physical_drive_access` |
+| Dirección MAC | Prefijo `08:00:27` (OUI de VirtualBox) | `antivm_network_adapters` |
+| Registro BIOS | Clave `HKLM\HARDWARE\DESCRIPTION\System\SystemBiosDate` sin spoofear | `recon_fingerprint` |
+
+Adicionalmente, PAFish detectó y restauró (*unhooked*) 11 funciones WMI (`IWbemServices_*`) instrumentadas por el propio agente de monitorización de CAPE (`antisandbox_unhook`), evidenciando evasión activa contra la instrumentación además de contra el hipervisor.
+
+**Conclusión:** el entorno sin endurecer es trivialmente identificable como una máquina virtual VirtualBox por múltiples vías independientes (archivos, registro, WMI, disco, red). El análisis dinámico se ejecuta con normalidad (PAFish no aborta la ejecución), pero cualquier muestra real con lógica de evasión condicional revelaría un comportamiento distinto —o nulo— frente al que mostraría en un entorno no detectado. Este baseline establece el punto de partida cuantitativo para medir el impacto de cada medida de hardening aplicada en las siguientes secciones.
+
+El reporte completo está en [`reports/00-baseline/1_report_pafish64_pre-hardening.json`](reports/00-baseline/1_report_pafish64_pre-hardening.json).
 
 ---
 
