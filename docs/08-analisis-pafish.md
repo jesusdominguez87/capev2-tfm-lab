@@ -42,7 +42,7 @@ CAPE realizará la siguiente secuencia automáticamente:
 
 ## Resultados del análisis baseline (pre-hardening)
 
-El reporte completo está en [`reports/00-baseline/1_report_pafish64_pre-hardening.json`](../reports/00-baseline/1_report_pafish64_pre-hardening.json).
+El reporte completo está en [`reports/baseline/1_report_pafish64_pre-hardening.json`](../reports/baseline/1_report_pafish64_pre-hardening.json).
 
 ### Metadatos del análisis
 

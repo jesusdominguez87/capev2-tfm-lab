@@ -127,7 +127,7 @@ Adicionalmente, PAFish detectó y restauró (*unhooked*) 11 funciones WMI (`IWbe
 
 **Conclusión:** el entorno sin endurecer es trivialmente identificable como una máquina virtual VirtualBox por múltiples vías independientes (archivos, registro, WMI, disco, red). El análisis dinámico se ejecuta con normalidad (PAFish no aborta la ejecución), pero cualquier muestra real con lógica de evasión condicional revelaría un comportamiento distinto —o nulo— frente al que mostraría en un entorno no detectado. Este baseline establece el punto de partida cuantitativo para medir el impacto de cada medida de hardening aplicada en las siguientes secciones.
 
-El reporte completo está en [`reports/00-baseline/1_report_pafish64_pre-hardening.json`](reports/00-baseline/1_report_pafish64_pre-hardening.json).
+El reporte completo está en [`reports/baseline/1_report_pafish64_pre-hardening.json`](reports/baseline/1_report_pafish64_pre-hardening.json).
 
 ---
 
