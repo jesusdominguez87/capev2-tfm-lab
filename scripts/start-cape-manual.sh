@@ -10,12 +10,44 @@
 
 CAPE_DIR="/opt/CAPEv2"
 POETRY="/etc/poetry/bin/poetry"
+VBOXNET_IF="vboxnet0"
+VBOXNET_IP="192.168.56.1/24"
 
 if [ ! -d "${CAPE_DIR}" ]; then
     echo "ERROR: No se encuentra el directorio ${CAPE_DIR}"
     echo "¿Has ejecutado el instalador cape2.sh?"
     exit 1
 fi
+
+# --- Comprobación de la red Host-Only (ResultServer) ---
+# vboxnet0 puede quedar en estado DOWN tras reiniciar el host, aunque
+# conserve la IP asignada. Sin esto, el agente del Guest es inalcanzable
+# aunque esté corriendo (timeout, no "connection refused").
+# Ver docs/07-troubleshooting.md — Problema 6.
+echo "Comprobando la interfaz ${VBOXNET_IF}..."
+
+if ! ip link show "${VBOXNET_IF}" > /dev/null 2>&1; then
+    echo "ERROR: La interfaz ${VBOXNET_IF} no existe."
+    echo "¿Está VirtualBox instalado y la red Host-Only configurada? (docs/02-setup-red-host-only.md)"
+    exit 1
+fi
+
+IF_STATE=$(ip -o link show "${VBOXNET_IF}" | awk '{print $9}')
+if [ "${IF_STATE}" != "UP" ] && [ "${IF_STATE}" != "UNKNOWN" ]; then
+    echo "[!] ${VBOXNET_IF} está en estado ${IF_STATE}. Levantando la interfaz..."
+    sudo ip link set "${VBOXNET_IF}" up
+fi
+
+if ! ip addr show "${VBOXNET_IF}" | grep -q "192.168.56.1/24"; then
+    echo "[!] ${VBOXNET_IF} no tiene la IP ${VBOXNET_IP}. Asignándola..."
+    sudo ip addr add "${VBOXNET_IP}" dev "${VBOXNET_IF}"
+fi
+
+echo "[+] ${VBOXNET_IF} operativa."
+echo ""
+echo "Sugerencia: ejecuta scripts/setup-vboxnet0.sh una sola vez para automatizar"
+echo "esto en cada arranque del host y no depender de este script."
+echo ""
 
 echo "Arrancando servicios de CAPEv2..."
 echo ""
@@ -64,4 +96,4 @@ gnome-terminal --title="CAPE - Web UI" -- bash -c "
 echo "Servicios arrancando..."
 echo "Abre Firefox y navega a http://localhost:8000"
 echo ""
-echo "Para detener todos los servicios: cierra las tres terminales."
+echo "Para detener todos los servicios: cierra las tres terminales con Ctrl + C y despues Enter en cada una."
