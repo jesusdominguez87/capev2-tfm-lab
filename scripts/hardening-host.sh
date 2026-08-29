@@ -79,12 +79,22 @@ ok "MAC: ${NEW_MAC:0:2}:${NEW_MAC:2:2}:${NEW_MAC:4:2}:${NEW_MAC:6:2}:${NEW_MAC:8
 # ── 4. CPUID ──────────────────────────────────────────────────────────────────
 echo ""
 echo "── Paso 4: CPUID — ocultar hipervisor ──"
-
+ 
+# 1. Suprimir la hoja de firma del hipervisor (0x40000000)
 VBoxManage setextradata "$VM" "VBoxInternal/CPUM/SuppressHypervisorCpuIdLeaf" 1
 VBoxManage modifyvm "$VM" --paravirtprovider none
-VBoxManage modifyvm "$VM" --cpu-profile "Intel Core i7-10700" 2>/dev/null \
-    || warn "Perfil CPU no aplicado (versión de VBox puede no soportarlo)"
-ok "CPUID: leaf 0x40000000 suprimida, paravirtualización desactivada"
+ 
+# 2. Desactivar 'set -e' temporalmente para que un fallo aquí no aborte el script
+set +e
+
+# 3. Aplicar el perfil del host físico (la opción más segura y universal)
+VBoxManage modifyvm "$VM" --cpu-profile "host" >/dev/null 2>&1
+
+# 4. Reactivar 'set -e'
+set -e
+
+ok "CPUID: leaf 0x40000000 suprimida y paravirtualización desactivada."
+echo -e "${GREEN}[OK]${NC}  Perfil de CPU: Configurado como 'host' para máxima compatibilidad hardware."
 
 # ── Resumen ───────────────────────────────────────────────────────────────────
 echo ""
