@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 # =============================================================================
-# hardening-host.sh — Hardening Anti-VM en el HOST Ubuntu (VBoxManage)
-# Ejecutar con la VM apagada.
+# hardening-host.sh - Hardening Anti-VM en el HOST Ubuntu (VBoxManage)
 # Uso: bash hardening-host.sh [nombre-vm]
+# Ejecutar con la VM apagada.
 # =============================================================================
 
-set -euo pipefail
 VM="${1:-Win10-Lab}"
 
 GREEN='\033[0;32m'; YELLOW='\033[1;33m'; RED='\033[0;31m'; NC='\033[0m'
@@ -14,17 +13,17 @@ warn() { echo -e "${YELLOW}[!!]${NC}  $*"; }
 fail() { echo -e "${RED}[ERR]${NC} $*"; exit 1; }
 
 echo ""
-echo "══════════════════════════════════════════════════════"
-echo "  Hardening Host — VM: $VM"
-echo "══════════════════════════════════════════════════════"
+echo "======================================================"
+echo "  Hardening Host - VM: $VM"
+echo "======================================================"
 
 command -v VBoxManage &>/dev/null || fail "VBoxManage no encontrado."
 VBoxManage showvminfo "$VM" &>/dev/null || fail "VM '$VM' no existe en VirtualBox."
 
-# Apagar si está corriendo
+# -- Apagar si esta corriendo --------------------------------------------------
 STATE=$(VBoxManage showvminfo "$VM" --machinereadable | grep '^VMState=' | cut -d'"' -f2)
 if [[ "$STATE" == "running" ]]; then
-    warn "VM en ejecución. Enviando ACPI poweroff..."
+    warn "VM en ejecucion. Enviando ACPI poweroff..."
     VBoxManage controlvm "$VM" acpipowerbutton
     for i in $(seq 1 20); do
         sleep 3
@@ -33,14 +32,16 @@ if [[ "$STATE" == "running" ]]; then
     done
     if [[ "$STATE" == "running" ]]; then
         warn "Forzando poweroff..."
-        VBoxManage controlvm "$VM" poweroff && sleep 3
+        VBoxManage controlvm "$VM" poweroff
+        sleep 3
     fi
 fi
 ok "VM apagada"
 
-# ── 1. DMI/BIOS spoofing ──────────────────────────────────────────────────────
+# -- Paso 1: DMI/BIOS spoofing ------------------------------------------------
+# Neutraliza: antivm_wmi (Win32_BIOS, Win32_ComputerSystem), recon_fingerprint
 echo ""
-echo "── Paso 1: DMI/BIOS spoofing (neutraliza antivm_wmi, recon_fingerprint) ──"
+echo "-- Paso 1: DMI/BIOS spoofing --"
 
 VBoxManage setextradata "$VM" "VBoxInternal/Devices/pcbios/0/Config/DmiSystemVendor"    "LENOVO"
 VBoxManage setextradata "$VM" "VBoxInternal/Devices/pcbios/0/Config/DmiSystemProduct"   "20SL001DGE"
@@ -55,55 +56,45 @@ VBoxManage setextradata "$VM" "VBoxInternal/Devices/pcbios/0/Config/DmiBoardVend
 VBoxManage setextradata "$VM" "VBoxInternal/Devices/pcbios/0/Config/DmiBoardProduct"    "LNVNB161216"
 ok "DMI/BIOS configurado como LENOVO ThinkBook 15 G2"
 
-# ── 2. Disco spoofing ─────────────────────────────────────────────────────────
+# -- Paso 2: Disco spoofing ---------------------------------------------------
+# Neutraliza: antivm_generic_disk, antivm_generic_scsi, physical_drive_access
 echo ""
-echo "── Paso 2: Disco spoofing (neutraliza antivm_generic_disk, antivm_generic_scsi) ──"
+echo "-- Paso 2: Disco spoofing --"
 
-VBoxManage setextradata "$VM" \
-    "VBoxInternal/Devices/ahci/0/Config/Port0/ModelNumber"    "Samsung SSD 870 EVO 500GB"
-VBoxManage setextradata "$VM" \
-    "VBoxInternal/Devices/ahci/0/Config/Port0/FirmwareRevision" "SVT01B6Q"
-VBoxManage setextradata "$VM" \
-    "VBoxInternal/Devices/ahci/0/Config/Port0/SerialNumber"   "S5YENX0T123456A"
+VBoxManage setextradata "$VM" "VBoxInternal/Devices/ahci/0/Config/Port0/ModelNumber"     "Samsung SSD 870 EVO 500GB"
+VBoxManage setextradata "$VM" "VBoxInternal/Devices/ahci/0/Config/Port0/FirmwareRevision" "SVT01B6Q"
+VBoxManage setextradata "$VM" "VBoxInternal/Devices/ahci/0/Config/Port0/SerialNumber"    "S5YENX0T123456A"
 ok "Disco: Samsung SSD 870 EVO 500GB (SVT01B6Q / S5YENX0T123456A)"
 
-# ── 3. MAC address ────────────────────────────────────────────────────────────
+# -- Paso 3: MAC address ------------------------------------------------------
+# Neutraliza: antivm_network_adapters (prefijo Oracle 08:00:27)
 echo ""
-echo "── Paso 3: MAC address (neutraliza antivm_network_adapters) ──"
+echo "-- Paso 3: MAC address --"
 
 SUFFIX=$(openssl rand -hex 3 | tr '[:lower:]' '[:upper:]')
 NEW_MAC="8C8D28${SUFFIX}"
 VBoxManage modifyvm "$VM" --macaddress1 "$NEW_MAC"
 ok "MAC: ${NEW_MAC:0:2}:${NEW_MAC:2:2}:${NEW_MAC:4:2}:${NEW_MAC:6:2}:${NEW_MAC:8:2}:${NEW_MAC:10:2} (OUI Intel)"
 
-# ── 4. CPUID ──────────────────────────────────────────────────────────────────
+# -- Paso 4: CPUID - ocultar hipervisor ---------------------------------------
 echo ""
-echo "── Paso 4: CPUID — ocultar hipervisor ──"
- 
-# 1. Suprimir la hoja de firma del hipervisor (0x40000000)
+echo "-- Paso 4: CPUID --"
+
 VBoxManage setextradata "$VM" "VBoxInternal/CPUM/SuppressHypervisorCpuIdLeaf" 1
 VBoxManage modifyvm "$VM" --paravirtprovider none
- 
-# 2. Desactivar 'set -e' temporalmente para que un fallo aquí no aborte el script
-set +e
+VBoxManage modifyvm "$VM" --cpu-profile "host" 2>/dev/null \
+    && ok "Perfil CPU: host" \
+    || warn "Perfil CPU 'host' no aplicado (continua sin el)"
+ok "CPUID: leaf 0x40000000 suprimida, paravirtualizacion desactivada"
 
-# 3. Aplicar el perfil del host físico (la opción más segura y universal)
-VBoxManage modifyvm "$VM" --cpu-profile "host" >/dev/null 2>&1
-
-# 4. Reactivar 'set -e'
-set -e
-
-ok "CPUID: leaf 0x40000000 suprimida y paravirtualización desactivada."
-echo -e "${GREEN}[OK]${NC}  Perfil de CPU: Configurado como 'host' para máxima compatibilidad hardware."
-
-# ── Resumen ───────────────────────────────────────────────────────────────────
+# -- Resumen ------------------------------------------------------------------
 echo ""
-echo "══════════════════════════════════════════════════════"
+echo "======================================================"
 echo "  Hardening del HOST completado."
 echo ""
 echo "  Siguiente paso: arrancar la VM y ejecutar en el Guest:"
 echo "  powershell -ExecutionPolicy Bypass -File hardening-guest.ps1"
 echo ""
-echo "  Después, apagar el Guest limpiamente y ejecutar:"
+echo "  Despues, apagar el Guest limpiamente y ejecutar:"
 echo "  VBoxManage snapshot \"$VM\" take \"CAPE_Hardened\""
-echo "══════════════════════════════════════════════════════"
+echo "======================================================"
