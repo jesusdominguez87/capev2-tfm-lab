@@ -49,7 +49,6 @@ El reporte completo está en [`reports/baseline/1_report_pafish64_pre-hardening.
 | Campo               | Valor                  |
 | ------------------- | ---------------------- |
 | ID de análisis      | 1                      |
-| Fecha               | 2026-08-28 11:09:40    |
 | Duración real       | **238 segundos**       |
 | Timeout configurado | 120 segundos*          |
 | Máquina             | Win10-Lab (VirtualBox) |

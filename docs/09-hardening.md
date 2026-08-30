@@ -6,7 +6,7 @@
 
 ## Vectores de deteccion identificados en el baseline
 
-El analisis baseline (ID 1, 2026-08-28) revelo que PAFish ejecuto con plena visibilidad por parte de CAPE (238 s, Malscore 9.0, 28/36 firmas). El objetivo del hardening no es que CAPE vea mas comportamiento — es que **PAFish no pueda identificar el entorno como una sandbox** y, por tanto, no active sus rutinas de evasion.
+El analisis baseline (ID 1) revelo que PAFish ejecuto con plena visibilidad por parte de CAPE (238 s, Malscore 9.0, 28/36 firmas). El objetivo del hardening no es que CAPE vea mas comportamiento — es que **PAFish no pueda identificar el entorno como una sandbox** y, por tanto, no active sus rutinas de evasion.
 
 Los vectores prioritarios, en orden de impacto sobre el numero de firmas:
 
@@ -106,7 +106,6 @@ El reporte completo esta en [`reports/post-hardening/2_report_pafish64_post-hard
 | Campo               | Valor                  |
 |---------------------|------------------------|
 | ID de analisis      | 2                      |
-| Fecha               | 2026-08-30             |
 | Maquina             | Win10-Lab (VirtualBox) |
 | Snapshot            | CAPE_Hardened          |
 
