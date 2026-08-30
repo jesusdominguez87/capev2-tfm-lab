@@ -21,18 +21,23 @@ capev2-tfm-lab/
 │   ├── 05-configuracion-cape.md    # Ficheros de configuración clave
 │   ├── 06-snapshot.md              # Creación del snapshot base
 │   ├── 07-troubleshooting.md       # Errores comunes y soluciones
-│   └── 08-analisis-pafish.md       # Envío de muestras y análisis de reportes
+│   ├── 08-analisis-pafish.md       # Análisis baseline pre-hardening con PAFish
+│   ├── 09-hardening.md             # Medidas de hardening Anti-VM y resultados
+│   └── 10-conclusiones.md          # Conclusiones del TFM
 ├── config/
 │   ├── virtualbox.conf.example     # Plantilla de configuración del hipervisor
 │   └── cuckoo.conf.example         # Plantilla de configuración principal de CAPE
 ├── reports/
 │   ├── baseline/
-│   │   └── 2_report_pafish64_pre-hardening.json  # Reporte CAPE — estado inicial
+│   │   └── 1_report_pafish64_pre-hardening.json   # Reporte CAPE — estado inicial
 │   └── post-hardening/
-│       └── (pendiente — se añadirá al completar el TFM)
+│       └── 2_report_pafish64_post-hardening.json  # Reporte CAPE — post-hardening
 ├── scripts/
 │   ├── check-agent.sh              # Verificar que el agente del Guest responde
-│   └── start-cape-manual.sh        # Arrancar los servicios de CAPE manualmente
+│   ├── start-cape-manual.sh        # Arrancar los servicios de CAPE manualmente
+│   ├── hardening-host.sh           # Hardening Anti-VM en el Host via VBoxManage
+│   ├── hardening-guest.ps1         # Hardening Anti-VM en el Guest Windows 10
+│   └── spoof_bios.bat              # Script de startup: falsificación de SystemBiosVersion
 └── samples/
     └── README.md                   # Cómo obtener PAFish (no se hostea malware aquí)
 ```
@@ -42,25 +47,25 @@ capev2-tfm-lab/
 ## 🏗️ Arquitectura del laboratorio
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                    HOST — Ubuntu Linux 22.04                    │
-│                                                                 │
-│  ┌─────────────────────┐      ┌─────────────────────────────┐   │
-│  │   Orquestador CAPE  │      │   VirtualBox Hypervisor     │   │
-│  │  IP: 192.168.56.1   │      │                             │   │
-│  │  ResultServer: 2042 │      │  ┌───────────────────────┐  │   │
-│  │  Web UI:      8000  │◄────►│  │  Guest — Windows 10   │  │   │
-│  └─────────────────────┘      │  │  IP: 192.168.56.101   │  │   │
-│                               │  │  Agent: TCP 8000      │  │   │
-│         vboxnet0              │  │  Snapshot: CAPE_Limpio│  │   │
-│    192.168.56.0/24            │  └───────────────────────┘  │   │
-│                               └─────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────┐
+│                    HOST — Ubuntu Linux 22.04                       │
+│                                                                    │
+│  ┌─────────────────────┐      ┌────────────────────────────────┐   │
+│  │   Orquestador CAPE  │      │   VirtualBox Hypervisor        │   │
+│  │  IP: 192.168.56.1   │      │                                │   │
+│  │  ResultServer: 2042 │      │  ┌──────────────────────────┐  │   │
+│  │  Web UI:      8000  │◄────►│  │  Guest — Windows 10      │  │   │
+│  └─────────────────────┘      │  │  IP: 192.168.56.101      │  │   │
+│                               │  │  Agent: TCP 8000         │  │   │
+│         vboxnet0              │  │  Snapshot: CAPE_Hardened │  │   │
+│    192.168.56.0/24            │  └──────────────────────────┘  │   │
+│                               └────────────────────────────────┘   │
+└────────────────────────────────────────────────────────────────────┘
 ```
 
 **Flujo de análisis:**
 1. El usuario sube una muestra a la Web UI de CAPE (`http://localhost:8000`)
-2. CAPE restaura el snapshot `CAPE_Limpio` en VirtualBox
+2. CAPE restaura el snapshot `CAPE_Hardened` en VirtualBox
 3. El orquestador envía la muestra al agente del Guest (TCP 8000)
 4. El agente inyecta el monitor de API Hooking en el proceso malicioso
 5. Los logs de comportamiento se envían al ResultServer (TCP 2042)
@@ -97,39 +102,54 @@ Sigue los documentos en orden:
 5. [Configurar los ficheros de CAPE](docs/05-configuracion-cape.md)
 6. [Crear el Snapshot base](docs/06-snapshot.md)
 7. [Solución de problemas comunes](docs/07-troubleshooting.md)
-8. [Enviar muestras y analizar reportes](docs/08-analisis-pafish.md)
-9. [Hardening y resultados](docs/07-troubleshooting.md)
-10. [Conclusiones Finales](docs/08-analisis-pafish.md)
+8. [Análisis baseline con PAFish](docs/08-analisis-pafish.md)
+9. [Hardening Anti-VM y resultados](docs/09-hardening.md)
+10. [Conclusiones del TFM](docs/10-conclusiones.md)
 
 ---
 
-## 📊 Resultados del baseline (pre-hardening)
+## 📊 Resultados: baseline vs post-hardening
 
-El baseline real de `pafish64.exe`, ejecutado sobre el entorno sin ninguna medida de hardening aplicada (Guest Additions instaladas, sin spoofing de MAC/DMI/BIOS/disco), produjo estos resultados:
+### Baseline pre-hardening (ID 1)
 
-| Métrica                  | Valor                              |
-| ------------------------- | ----------------------------------- |
-| Duración del análisis     | **238 segundos** (ejecución completa) |
-| Procesos capturados       | **1** (comportamiento completo)     |
-| Malscore                  | **9.0 / 10**                        |
-| Clasificación             | **Malicious**                       |
-| Firmas disparadas         | **28 de 36**                        |
+El análisis de `pafish64.exe` sobre el entorno sin ninguna medida de hardening (Guest Additions instaladas, sin spoofing de MAC/DMI/BIOS/disco) produjo:
 
-**Vectores de detección anti-VM confirmados:**
+| Métrica                  | Valor                                 |
+|--------------------------|---------------------------------------|
+| Duración del análisis    | **238 segundos** (ejecución completa) |
+| Procesos capturados      | **1**                                 |
+| Malscore                 | **9.0 / 10**                          |
+| Clasificación            | **Malicious**                         |
+| Firmas disparadas        | **28 de 36**                          |
 
-| Vector | Evidencia | Firma CAPE |
-| --- | --- | --- |
-| VirtualBox Guest Additions | 17 archivos (`vboxdisp.dll`, `VBoxTray.exe`, `VBoxMouse.sys`, etc.) + ventana `VBoxTrayToolWndClass` activa | `antivm_vbox_files`, `antivm_vbox_window`, `antivm_vbox_provname` |
-| Consultas WMI (fabricante/modelo) | Llamada a `Win32_ComputerSystem`/`Win32_BIOS` | `antivm_wmi` |
-| Identificador de disco | Cadena `VBOX HARDDISK` vía SCSI + acceso directo al disco físico | `antivm_generic_disk`, `antivm_generic_scsi`, `physical_drive_access` |
-| Dirección MAC | Prefijo `08:00:27` (OUI de VirtualBox) | `antivm_network_adapters` |
-| Registro BIOS | Clave `HKLM\HARDWARE\DESCRIPTION\System\SystemBiosDate` sin spoofear | `recon_fingerprint` |
+**Vectores de detección Anti-VM activos:**
 
-Adicionalmente, PAFish detectó y restauró (*unhooked*) 11 funciones WMI (`IWbemServices_*`) instrumentadas por el propio agente de monitorización de CAPE (`antisandbox_unhook`), evidenciando evasión activa contra la instrumentación además de contra el hipervisor.
-
-**Conclusión:** el entorno sin endurecer es trivialmente identificable como una máquina virtual VirtualBox por múltiples vías independientes (archivos, registro, WMI, disco, red). El análisis dinámico se ejecuta con normalidad (PAFish no aborta la ejecución), pero cualquier muestra real con lógica de evasión condicional revelaría un comportamiento distinto —o nulo— frente al que mostraría en un entorno no detectado. Este baseline establece el punto de partida cuantitativo para medir el impacto de cada medida de hardening aplicada en las siguientes secciones.
+| Vector | Firma CAPE |
+|---|---|
+| 17 artefactos de Guest Additions + ventana `VBoxTrayToolWndClass` | `antivm_vbox_files`, `antivm_vbox_window`, `antivm_vbox_provname` |
+| Consultas WMI a `Win32_BIOS` / `Win32_ComputerSystem` | `antivm_wmi` |
+| Cadena `VBOX HARDDISK` vía SCSI + acceso directo al disco | `antivm_generic_disk`, `antivm_generic_scsi`, `physical_drive_access` |
+| Prefijo MAC `08:00:27` (OUI de Oracle/VirtualBox) | `antivm_network_adapters` |
+| Clave `SystemBiosDate` sin falsificar en `HKLM\HARDWARE\DESCRIPTION\System` | `recon_fingerprint` |
 
 El reporte completo está en [`reports/baseline/1_report_pafish64_pre-hardening.json`](reports/baseline/1_report_pafish64_pre-hardening.json).
+
+### Post-hardening (ID 2)
+
+Tras aplicar las medidas documentadas en [`docs/09-hardening.md`](docs/09-hardening.md):
+
+| Métrica                        | Baseline | Post-hardening |
+|--------------------------------|----------|----------------|
+| Malscore                       | 9.0      | 9.0            |
+| Firmas Anti-VM neutralizadas   | —        | **4 eliminadas** |
+| Firmas Anti-VM nuevas          | —        | +10 (PAFish ejecutó más rutinas) |
+| Vector disco neutralizado      | —        | ✅ Completo |
+| Vector MAC neutralizado        | —        | ✅ Completo |
+| Guest Additions eliminadas     | —        | ~82% (residuos inamovibles) |
+
+> **Nota sobre el Malscore:** el Malscore de CAPE mide la peligrosidad del comportamiento capturado, no si el entorno fue detectado como VM. La métrica relevante para este TFM es el conjunto de firmas `anti-vm` disparadas. La aparición de 10 firmas nuevas es un indicador positivo: PAFish ejecutó más rutinas de comprobación porque no abortó al detectar el entorno inmediatamente.
+
+El reporte completo está en [`reports/post-hardening/2_report_pafish64_post-hardening.json`](reports/post-hardening/2_report_pafish64_post-hardening.json).
 
 ---
 
