@@ -146,11 +146,11 @@ En orden de prioridad según el número de artefactos que aportan:
 
 El objetivo del TFM es neutralizar el mayor número posible de estos vectores de detección para que PAFish (y por extensión, el malware real evasivo) no pueda distinguir la sandbox de una máquina física real.
 
-Los resultados comparativos post-hardening se documentan de forma incremental en [`reports/`](https://github.com/jesusdominguez87/capev2-tfm-lab/tree/main/reports), con una carpeta por cada capa de hardening aplicada (spoofing de MAC, DMI/BIOS y disco, retirada de Guest Additions...), permitiendo medir el impacto individual de cada medida sobre el malscore y las firmas disparadas.
-
 **Métricas objetivo post-hardening:**
 
 - Firmas de categoría `anti-vm` disparadas: reducción sustancial frente a las 8+ del baseline
 - `antivm_vbox_files` / `antivm_vbox_window`: 0 artefactos tras la retirada de Guest Additions
 - `antivm_wmi`, `antivm_generic_disk`, `antivm_generic_scsi`: sin disparo tras el spoofing de DMI/BIOS/disco
 - `antivm_network_adapters`: sin disparo tras el spoofing de MAC
+
+Continúa con: [09 — Hardening →](09-hardening.md)

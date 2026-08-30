@@ -83,3 +83,5 @@ Confirma que aparece `Loaded 1 machine.` en los logs.
 ---
 
 Continúa con: [07 — Solución de problemas →](07-troubleshooting.md)
+
+O pasa directamente a: [08 — Análisis con PAFish →](08-analisis-pafish.md)
