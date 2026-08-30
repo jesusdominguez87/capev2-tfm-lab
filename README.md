@@ -98,6 +98,8 @@ Sigue los documentos en orden:
 6. [Crear el Snapshot base](docs/06-snapshot.md)
 7. [Solución de problemas comunes](docs/07-troubleshooting.md)
 8. [Enviar muestras y analizar reportes](docs/08-analisis-pafish.md)
+9. [Hardening y resultados](docs/07-troubleshooting.md)
+10. [Conclusiones Finales](docs/08-analisis-pafish.md)
 
 ---
 
