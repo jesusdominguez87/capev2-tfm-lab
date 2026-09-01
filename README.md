@@ -7,6 +7,8 @@ Este repositorio documenta de forma reproducible el despliegue, configuración y
 
 El objetivo es que cualquier investigador o alumno pueda replicar el laboratorio desde cero, comprender las decisiones técnicas tomadas y estudiar el impacto del hardening Anti-VM sobre la extracción de IoCs.
 
+![Agent Running](images/Analisis-Demo-start-script.gif)
+
 ---
 
 ## 🗂️ Estructura del repositorio
@@ -81,7 +83,7 @@ capev2-tfm-lab/
 | Hipervisor | VirtualBox (última versión estable) |
 | SO Guest | Windows 10 x64 |
 | CAPEv2 | Instalado vía `cape2.sh` (rama `master`) |
-| Python (Guest) | 3.8.10 (32-bit) |
+| Python (Guest) | 3.10.6 (32-bit) |
 | Muestra de prueba | PAFish v0.3.6 (`pafish64.exe`) |
 
 **Hardware mínimo recomendado:**
@@ -114,13 +116,14 @@ Sigue los documentos en orden:
 
 El análisis de `pafish64.exe` sobre el entorno sin ninguna medida de hardening (Guest Additions instaladas, sin spoofing de MAC/DMI/BIOS/disco) produjo:
 
-| Métrica                  | Valor                                 |
-|--------------------------|---------------------------------------|
-| Duración del análisis    | **238 segundos** (ejecución completa) |
-| Procesos capturados      | **1**                                 |
-| Malscore                 | **9.0 / 10**                          |
-| Clasificación            | **Malicious**                         |
-| Firmas disparadas        | **28 de 36**                          |
+| Métrica                         | Valor                                 |
+|---------------------------------|---------------------------------------|
+| Duración del análisis           | **238 segundos** (ejecución completa) |
+| Procesos capturados             | **1**                                 |
+| Malscore                        | **9.0 / 10**                          |
+| Clasificación                   | **Malicious**                         |
+| Firmas CAPEv2 disparadas        | **36 de 36**                          |
+| Detecciones PAFish (pafish.log) | **27**                                |
 
 **Vectores de detección Anti-VM activos:**
 
@@ -138,16 +141,20 @@ El reporte completo está en [`reports/baseline/1_report_pafish64_pre-hardening.
 
 Tras aplicar las medidas documentadas en [`docs/09-hardening.md`](docs/09-hardening.md):
 
-| Métrica                        | Baseline | Post-hardening |
-|--------------------------------|----------|----------------|
-| Malscore                       | 9.0      | 9.0            |
-| Firmas Anti-VM neutralizadas   | —        | **4 eliminadas** |
-| Firmas Anti-VM nuevas          | —        | +10 (PAFish ejecutó más rutinas) |
-| Vector disco neutralizado      | —        | ✅ Completo |
-| Vector MAC neutralizado        | —        | ✅ Completo |
-| Guest Additions eliminadas     | —        | ~82% (residuos inamovibles) |
+| Métrica                                  | Baseline | Post-hardening | Variación         |
+|------------------------------------------|----------|----------------|-------------------|
+| Malscore                                 | 9.0      | 9.0            | Sin cambio        |
+| Firmas CAPEv2 disparadas                 | 36       | 36             | Sin cambio        |
+| **Detecciones PAFish (pafish.log)**      | **27**   | **9**          | **−18 (−66,7%)** |
+| Detecciones VBox ficheros/drivers        | 9        | 0              | ✅ 100% eliminadas |
+| Detecciones VBox registro/servicios      | 6        | 0              | ✅ 100% eliminadas |
+| Detección MAC 08:00:27                   | 1        | 0              | ✅ Neutralizada   |
+| Detección CPUID hipervisor               | 2        | 0              | ✅ Neutralizada   |
+| Detección WMI VirtualBox                 | 1        | 1              | ⚠️ Persiste       |
+| Detecciones sandbox (ratón/uptime)       | 4        | 6              | ⚠️ +2 (módulo human) |
+| `stealth_timeout` (nueva firma CAPEv2)   | —        | ✅ Presente    | Indicador positivo |
 
-> **Nota sobre el Malscore:** el Malscore de CAPE mide la peligrosidad del comportamiento capturado, no si el entorno fue detectado como VM. La métrica relevante para este TFM es el conjunto de firmas `anti-vm` disparadas. La aparición de 10 firmas nuevas es un indicador positivo: PAFish ejecutó más rutinas de comprobación porque no abortó al detectar el entorno inmediatamente.
+> **Nota sobre las métricas:** el Malscore de CAPE mide la peligrosidad del comportamiento capturado, no si el entorno fue detectado como VM, y permanece estable en 9.0. Las firmas del array `signatures[]` de CAPEv2 son 36 en ambos análisis porque CAPEv2 registra el *intento* de cada comprobación Anti-VM. La métrica relevante es `pafish.log`: registra qué artefactos encontró PAFish realmente (27 → 9, reducción del 66,7%). La firma `stealth_timeout` en POST indica que PAFish ejecutó más rutinas antes de terminar, confirmando que el hardening funcionó.
 
 El reporte completo está en [`reports/post-hardening/2_report_pafish64_post-hardening.json`](reports/post-hardening/2_report_pafish64_post-hardening.json).
 

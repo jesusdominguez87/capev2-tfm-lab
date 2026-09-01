@@ -38,6 +38,8 @@ CAPE realizará la siguiente secuencia automáticamente:
 5. Espera el timeout o hasta que el proceso termine
 6. Recoge los logs y genera el reporte
 
+![Envio de Muestra](../images/Analisis-Demo-submit-sample.gif)
+
 ---
 
 ## Resultados del análisis baseline (pre-hardening)
@@ -69,13 +71,14 @@ El reporte completo está en [`reports/baseline/1_report_pafish64_pre-hardening.
 
 ### Resultados de extracción
 
-| Métrica                 | Valor                | Interpretación                          |
-| ------------------------ | -------------------- | ---------------------------------------- |
-| **Malscore**              | **9.0 / 10**          | Clasificado como "Malicious"             |
-| **Malstatus**             | **Malicious**         | Comportamiento evasivo detectado         |
-| **Procesos capturados**   | **1**                 | Comportamiento completo registrado       |
-| **Firmas disparadas**     | **28 de 36**          | Amplia cobertura de técnicas Anti-VM/Anti-Analysis |
-| **Actividad de red**      | Ninguna               | Esperado (PAFish no realiza C2)          |
+| Métrica                          | Valor         | Interpretación                                      |
+|----------------------------------|---------------|-----------------------------------------------------|
+| **Malscore**                     | **9.0 / 10**  | Clasificado como "Malicious"                        |
+| **Malstatus**                    | **Malicious** | Comportamiento evasivo detectado                    |
+| **Procesos capturados**          | **1**         | Comportamiento completo registrado                  |
+| **Firmas CAPEv2 disparadas**     | **36 de 36**  | CAPEv2 registra el intento de cada comprobación     |
+| **Detecciones PAFish (pafish.log)** | **27**     | Artefactos que PAFish encontró realmente en el entorno |
+| **Actividad de red**             | Ninguna       | Esperado (PAFish no realiza C2)                     |
 
 ### Firmas de comportamiento relevantes (análisis dinámico)
 
@@ -118,7 +121,7 @@ El API Hooking del agente capturó comportamiento completo. Estas son las firmas
 El baseline confirma que, sin ninguna medida de hardening, **el entorno es identificable como VirtualBox por múltiples vías independientes y simultáneas**:
 
 **Guest Additions como vector dominante.**
-17 de los artefactos detectados provienen de un único origen: las VirtualBox Guest Additions instaladas en el Guest. Archivos (`vboxdisp.dll`, `VBoxTray.exe`, drivers `.sys`...) y una ventana activa (`VBoxTrayToolWndClass`) delatan el entorno sin que PAFish necesite ninguna técnica sofisticada — basta con listar `C:\Windows\System32`.
+17 de los artefactos detectados provienen de un único origen: las VirtualBox Guest Additions instaladas en el Guest. Archivos (`vboxdisp.dll`, `VBoxTray.exe`, drivers `.sys`...) y una ventana activa (`VBoxTrayToolWndClass`) delatan el entorno sin que PAFish necesite ninguna técnica sofisticada, basta con listar `C:\Windows\System32`.
 
 **WMI y disco como vectores secundarios pero robustos.**
 Las consultas WMI a `Win32_BIOS`/`Win32_ComputerSystem` y el identificador SCSI del disco virtual (`VBOX HARDDISK`) son artefactos que persisten incluso si se retiran las Guest Additions, porque provienen de la emulación de hardware (BIOS/DMI) del propio hipervisor, no del software instalado en el Guest.
@@ -127,7 +130,7 @@ Las consultas WMI a `Win32_BIOS`/`Win32_ComputerSystem` y el identificador SCSI 
 La firma `antisandbox_unhook` es especialmente relevante: PAFish no solo detecta el entorno, sino que **detecta y revierte activamente 11 hooks WMI** instalados por el propio agente de monitorización de CAPE. Esto confirma que la instrumentación en sí misma es un vector de detección adicional, no solo el hipervisor subyacente.
 
 **Malscore 9.0 ("Malicious") con comportamiento completo capturado.**
-A diferencia de un análisis fallido, aquí CAPE tuvo visibilidad total sobre el comportamiento de PAFish. El malscore alto no indica que PAFish sea dañino (es una herramienta de demostración inofensiva) — indica que **el conjunto de técnicas de evasión que ejecuta con éxito** es amplio, lo cual es exactamente el resultado esperado de un entorno sin endurecer y el punto de partida cuantitativo del TFM.
+A diferencia de un análisis fallido, aquí CAPE tuvo visibilidad total sobre el comportamiento de PAFish. El malscore alto no indica que PAFish sea dañino (es una herramienta de demostración inofensiva), indica que **el conjunto de técnicas de evasión que ejecuta con éxito** es amplio, lo cual es exactamente el resultado esperado de un entorno sin endurecer y el punto de partida cuantitativo del TFM.
 
 ### Vectores de detección a neutralizar
 
@@ -147,9 +150,13 @@ El objetivo del TFM es neutralizar el mayor número posible de estos vectores de
 
 **Métricas objetivo post-hardening:**
 
-- Firmas de categoría `anti-vm` disparadas: reducción sustancial frente a las 8+ del baseline
-- `antivm_vbox_files` / `antivm_vbox_window`: 0 artefactos tras la retirada de Guest Additions
-- `antivm_wmi`, `antivm_generic_disk`, `antivm_generic_scsi`: sin disparo tras el spoofing de DMI/BIOS/disco
-- `antivm_network_adapters`: sin disparo tras el spoofing de MAC
+> ⚠️ **Distinción clave de métricas:** Las firmas del array `signatures[]` de CAPEv2 registran el *intento* de cada comprobación Anti-VM (la llamada a la API), independientemente de si PAFish encontró el artefacto o no. La fuente principal es `pafish.log`: registra qué artefactos encontró PAFish realmente. El objetivo del hardening es reducir las detecciones en `pafish.log`, no las firmas de CAPEv2.
+
+- **Detecciones en `pafish.log`**: reducción sustancial frente a las 27 del baseline
+- Ficheros y drivers de Guest Additions: 0 detecciones en `pafish.log` tras la desinstalación
+- CPUID hipervisor (`VBoxVBoxVBox`, hypervisor bit): 0 detecciones tras `SuppressHypervisorCpuIdLeaf`
+- Disco (`VBOX HARDDISK`): 0 detecciones tras el spoofing de disco
+- MAC `08:00:27`: 0 detecciones tras el spoofing de MAC
+- WMI VirtualBox: puede persistir si el DSDT no fue modificado
 
 Continúa con: [09 — Hardening →](09-hardening.md)

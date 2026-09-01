@@ -117,6 +117,8 @@ Abre Firefox en Ubuntu y navega a:
 http://localhost:8000
 ```
 
+![CAPE Web UI running](../images/CAPE-web-running.png)
+
 Deberías ver el panel de control de CAPEv2. Si la página no carga, comprueba que el proceso del Terminal 3 no muestra errores.
 
 ---

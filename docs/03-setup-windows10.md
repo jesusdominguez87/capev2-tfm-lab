@@ -58,6 +58,8 @@ El malware se negará a ejecutar su payload si detecta actividad antivirus. Wind
 4. Nómbralo exactamente `DisableAntiSpyware`.
 5. Doble clic sobre él → establece el valor a `1`.
 
+![DisableAntiSpyware](../images/win-defender-disabled.png)
+
 > **¿Por qué el Registro?** La clave de Registro aplica la política a nivel de sistema, lo que impide que la interfaz gráfica o las actualizaciones automáticas reactiven el Defender.
 
 ---
@@ -86,6 +88,8 @@ Deberías ver: `La operación se completó correctamente.`
 2. En la primera pantalla, **marca la casilla "Add Python 3.10 to PATH"** antes de continuar.
 3. Haz clic en **Install Now**.
 
+![Python Install](../images/python-install.png)
+
 Una vez instalado:
 
 4. Renombra `agent.py` a `agent.pyw` (la extensión `.pyw` hace que el script se ejecute sin mostrar una ventana de terminal, reduciendo los artefactos visibles).
@@ -105,10 +109,9 @@ Desde Ubuntu, comprueba que el agente responde:
 curl http://192.168.56.101:8000
 ```
 
-**Respuesta esperada (pre-hardening):**
-```json
-{"status": "ok", "version": "0.9", "is_user_admin": true}
-```
+**Respuesta esperada (Script check-agent.sh):**
+
+![Agent Running](../images/agent-running.png)
 
 > **`is_user_admin: false` → problema.** Si ves `false`, el agente no tiene privilegios de Administrador. Ve a [07 — Troubleshooting](07-troubleshooting.md#is_user_admin-false) para solucionarlo.
 

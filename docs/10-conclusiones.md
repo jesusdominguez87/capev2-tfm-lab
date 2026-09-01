@@ -8,7 +8,7 @@ El trabajo se ha estructurado en tres fases ejecutadas de forma incremental y do
 
 **Fase 1 — Construccion del entorno base.** Instalacion y configuracion de CAPEv2 sobre Ubuntu, integracion con VirtualBox, preparacion del Guest Windows 10 con el agente de monitorizacion, y configuracion de red aislada. El resultado fue un entorno funcional capaz de analizar muestras y generar reportes de comportamiento.
 
-**Fase 2 — Analisis baseline.** Envio de `pafish64.exe` como muestra de referencia antes de aplicar ninguna medida de hardening. El analisis (ID 1, 2026-08-28) confirmo que CAPE tenia visibilidad completa sobre el comportamiento de PAFish (238 s, Malscore 9.0, 28/36 firmas), e identifico con precision los vectores de deteccion activos: artefactos de Guest Additions, emulacion de hardware DMI/BIOS, identificadores de disco virtual, y prefijo MAC de Oracle.
+**Fase 2 — Analisis baseline.** Envio de `pafish64.exe` como muestra de referencia antes de aplicar ninguna medida de hardening. El analisis (ID 1, 2026-08-28) confirmo que CAPE tenia visibilidad completa sobre el comportamiento de PAFish (238 s, Malscore 9.0, 36/36 firmas CAPEv2, **27 detecciones en `pafish.log`**), e identifico con precision los vectores de deteccion activos: artefactos de Guest Additions, emulacion de hardware DMI/BIOS, identificadores de disco virtual, y prefijo MAC de Oracle.
 
 **Fase 3 — Hardening y validacion.** Aplicacion de medidas en dos planos (Host via `VBoxManage` y Guest via PowerShell), creacion del snapshot `CAPE_Hardened`, y segundo analisis con la misma muestra (ID 2, 2026-08-30).
 
@@ -16,27 +16,34 @@ El trabajo se ha estructurado en tres fases ejecutadas de forma incremental y do
 
 ## Resultados cuantitativos
 
-| Metrica                          | Baseline | Post-hardening | Variacion     |
-|----------------------------------|----------|----------------|---------------|
-| Malscore                         | 9.0      | 9.0            | 0             |
-| Firmas Anti-VM disparadas        | 8        | 11             | +3 (nuevas)   |
-| Firmas Anti-VM neutralizadas     | —        | 4              | -4            |
-| Firmas totales disparadas        | ~19      | ~23            | +4 (nuevas)   |
-| Vectores de disco neutralizados  | —        | 3/3            | 100%          |
-| Vector MAC neutralizado          | —        | 1/1            | 100%          |
-| Artefactos de GA eliminados      | —        | ~14/17         | ~82%          |
+| Metrica                                   | Baseline | Post-hardening | Variacion           |
+|-------------------------------------------|----------|----------------|---------------------|
+| Malscore                                  | 9.0      | 9.0            | Sin cambio          |
+| Firmas CAPEv2 disparadas                  | 36       | 36             | Sin cambio          |
+| **Detecciones PAFish (pafish.log)**       | **27**   | **9**          | **−18 (−66,7%)**   |
+| Det. CPUID hipervisor                     | 2        | 0              | −2 (100%)           |
+| Det. ficheros/drivers Guest Additions     | 9        | 0              | −9 (100%)           |
+| Det. claves registro VBox/servicios       | 6        | 0              | −6 (100%)           |
+| Det. dispositivos/ventana/red VBox        | 3        | 0              | −3 (100%)           |
+| Det. MAC 08:00:27                         | 1        | 0              | −1 (100%)           |
+| Det. disco VBOX HARDDISK                  | 3        | 0              | −3 (100%)           |
+| Det. WMI VirtualBox                       | 1        | 1              | Persiste            |
+| Det. sandbox raton/uptime                 | 4        | 6              | +2 (modulo human)   |
+| `stealth_timeout` (nueva firma CAPEv2)    | —        | Presente       | Indicador positivo  |
 
 ---
 
 ## Logros principales
 
-**Neutralizacion completa del vector de disco.** Las firmas `antivm_generic_disk`, `antivm_generic_scsi` y `physical_drive_access` desaparecieron por completo. El spoofing del modelo, firmware y numero de serie del disco virtual a nivel de hipervisor (`VBoxInternal/Devices/ahci`) es efectivo contra todas las vias de consulta que PAFish utiliza: WMI (`Win32_DiskDrive`), IOCTL directo (`IDENTIFYDEVICE`) y acceso SCSI.
+**Resultado global: reduccion del 66,7% en detecciones PAFish.** El analisis de `pafish.log` revela que las detecciones Anti-VM pasaron de 27 en el baseline a 9 en el post-hardening. Esta es la metrica central: refleja lo que el malware real habria encontrado al ejecutarse en cada entorno. Las firmas del array `signatures[]` de CAPEv2 son 36 en ambos analisis porque CAPEv2 registra el *intento* de cada comprobacion, no si PAFish encontro el artefacto.
 
-**Neutralizacion completa del vector de red.** La firma `antivm_network_adapters` desaparecio al sustituir el prefijo MAC de Oracle (`08:00:27`) por un OUI de Intel. Es la medida de menor coste y mayor impacto en proporcion: un solo comando de `VBoxManage` elimina una firma de severidad media con alta confianza.
+**Neutralizacion completa del vector de disco.** Las tres detecciones de disco en `pafish.log` (modelo VBOX HARDDISK via WMI, identificador SCSI, acceso directo) desaparecieron por completo. El spoofing del modelo, firmware y numero de serie del disco virtual a nivel de hipervisor (`VBoxInternal/Devices/ahci`) es efectivo contra todas las vias de consulta que PAFish utiliza: WMI (`Win32_DiskDrive`), IOCTL directo (`IDENTIFYDEVICE`) y acceso SCSI.
 
-**Eliminacion de detecciones estaticas.** Las firmas `binary_yara` y `procmem_yara` presentes en el baseline desaparecieron en el analisis post-hardening. Esto sugiere que la modificacion del entorno de ejecucion (diferente conjunto de DLLs cargadas, diferente estado del sistema) afecto a las condiciones bajo las que PAFish activa esas reglas.
+**Neutralizacion completa del vector de red.** La deteccion de MAC `08:00:27` desaparecio de `pafish.log` al sustituir el prefijo de Oracle por un OUI de Intel. Es la medida de menor coste y mayor impacto en proporcion: un solo comando de `VBoxManage` elimina una deteccion con alta confianza.
 
-**Ejecucion mas completa de PAFish.** La aparicion de 10 firmas nuevas — entre ellas `antivm_vbox_devices`, `antivm_vbox_keys`, `antivm_generic_bios`, `antivm_vmware_devices` — indica que PAFish ejecuto rutinas de comprobacion adicionales que en el baseline no alcanzaba a ejecutar. Este es el efecto buscado: un malware que no detecta inmediatamente el entorno ejecuta mas de su comportamiento real antes de intentar evadir o terminar.
+**Neutralizacion completa de Guest Additions segun PAFish.** Los 9 ficheros/drivers de Guest Additions y las 6 claves de registro/servicios detectados en el baseline no aparecen en `pafish.log` POST. Aunque CAPEv2 sigue disparando firmas como `antivm_vbox_files` (registra el intento de busqueda), PAFish no encontro los artefactos en el entorno endurecido.
+
+**stealth_timeout es el indicador positivo clave.** La unica firma genuinamente nueva en `signatures[]` de CAPEv2 en POST es `stealth_timeout`: PAFish termino antes de completar todas sus rutinas porque el entorno ya no era tan obviamente detectable. La reduccion de 27 a 9 detecciones en `pafish.log` cuantifica ese avance.
 
 ---
 
@@ -66,7 +73,7 @@ Esta limitacion no es especifica de CAPEv2 ni de VirtualBox — afecta a cualqui
 
 **Monitorizacion basada en hipervisor.** Sustituir el hooking a nivel de usuario por monitorizacion desde el nivel de hipervisor (VMI — Virtual Machine Introspection) elimina completamente la superficie de deteccion de `antisandbox_unhook`. Proyectos como DRAKVUF implementan este enfoque sobre Xen.
 
-**Validacion con malware real evasivo.** PAFish es una herramienta de demostracion que ejecuta todas sus comprobaciones independientemente del resultado. El siguiente paso natural es validar el entorno hardened con muestras reales de malware que implementen evasion condicional (que solo ejecuten payload si no detectan sandbox), para medir el incremento real en tasa de captura de comportamiento.
+**Validacion con malware real evasivo.** PAFish esta disenado para ejecutar todas sus comprobaciones independientemente del resultado, aunque en la practica la firma `stealth_timeout` evidencio que en el analisis post-hardening termino antes de completar todas las rutinas. El siguiente paso natural es validar el entorno hardened con muestras reales de malware que implementen evasion condicional (que solo ejecuten payload si no detectan sandbox), para medir el incremento real en tasa de captura de comportamiento.
 
 ---
 
@@ -76,7 +83,7 @@ El hardening Anti-VM de una sandbox CAPEv2 sobre VirtualBox es un proceso viable
 
 El trabajo demostro que las medidas de mayor impacto relativo son el spoofing de disco y la sustitucion de MAC, porque neutralizan firmas de deteccion concretas con cambios minimos y sin efectos secundarios sobre la capacidad de analisis. La eliminacion de Guest Additions, aunque es el vector con mayor numero de artefactos, es tambien el mas complejo de ejecutar limpiamente por la combinacion de ficheros bloqueados por el kernel, DLLs secundarias no documentadas, y entradas de registro regeneradas automaticamente.
 
-La aparicion de nuevas firmas en el analisis post-hardening — aunque a primera vista parece un retroceso — es en realidad la confirmacion de que el hardening funciona: PAFish ejecuto mas rutinas porque no detecto el entorno de forma inmediata. El objetivo de una sandbox hardened no es obtener un Malscore de 0 en PAFish, sino que el malware real no pueda distinguir el entorno de una maquina fisica y ejecute su comportamiento completo.
+La reduccion de 27 a 9 detecciones en `pafish.log` (−66,7%) es la confirmacion cuantitativa de que el hardening funciona. La firma `stealth_timeout` en CAPEv2 indica que PAFish ejecuto mas rutinas antes de terminar porque el entorno ya no era tan obviamente detectable. El objetivo de una sandbox hardened no es obtener cero detecciones en PAFish, sino que el malware real no pueda distinguir el entorno de una maquina fisica y ejecute su comportamiento completo.
 
 ---
 

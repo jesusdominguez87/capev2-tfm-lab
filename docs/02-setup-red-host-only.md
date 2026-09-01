@@ -54,6 +54,8 @@ Con la VM arrancada:
    En **Servidor DNS alternativo**: `1.1.1.1` (Cloudflare)
 6. Haz clic en **Aceptar** en ambas ventanas.
 
+![Configuracion de Red Guest](../images/config-red-guest.png)
+
 ---
 
 ## Paso 4: Verificar la conectividad (ping)
